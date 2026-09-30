@@ -1,6 +1,1665 @@
-/* =====================================
-   WEDDING MUSIC
-===================================== */
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-music.src = "./Screen_Recording_20260929_214851_YouTube.mp4";
-musicReady = true;
+<title>Алмаз & Ясмина — Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f6f1e8;
+    color:#181715;
+    font-family:"Inter",sans-serif;
+    overflow-x:hidden;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* =========================
+   ENVELOPE SCREEN
+========================= */
+
+#envelopeScreen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fffdf9 0%,
+            #f1e9dc 65%,
+            #dfd1bb 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+#envelopeScreen.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.envelope-wrapper{
+    width:min(88vw,430px);
+    text-align:center;
+}
+
+.invitation-label{
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#a18b65;
+    margin-bottom:30px;
+}
+
+.envelope{
+    position:relative;
+    width:100%;
+    aspect-ratio:1.48;
+    cursor:pointer;
+
+    filter:
+        drop-shadow(
+            0 30px 35px rgba(75,55,30,.20)
+        );
+}
+
+.envelope-body{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf9,
+            #e8ddca
+        );
+
+    border:1px solid rgba(140,115,75,.35);
+}
+
+.envelope-body::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            35deg,
+            transparent 49.5%,
+            rgba(145,120,80,.25) 50%,
+            transparent 50.5%
+        ),
+        linear-gradient(
+            -35deg,
+            transparent 49.5%,
+            rgba(145,120,80,.25) 50%,
+            transparent 50.5%
+        );
+}
+
+.envelope-flap{
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:68%;
+
+    background:
+        linear-gradient(
+            160deg,
+            #fffefa,
+            #e6dac7
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin:top center;
+
+    transition:
+        transform 1s cubic-bezier(.2,.7,.2,1);
+
+    z-index:3;
+}
+
+.envelope.open .envelope-flap{
+    transform:rotateX(180deg);
+}
+
+.envelope-names{
+    position:absolute;
+
+    left:50%;
+    top:73%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:2;
+
+    width:100%;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:27px;
+    letter-spacing:2px;
+}
+
+.seal{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:72px;
+    height:72px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d0b98b,
+            #a88a55
+        );
+
+    color:white;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:25px;
+
+    z-index:5;
+
+    box-shadow:
+        0 12px 30px rgba(70,50,25,.25);
+
+    transition:.5s ease;
+}
+
+.envelope:hover .seal{
+    transform:
+        translate(-50%,-50%)
+        scale(1.05);
+}
+
+.open-instruction{
+    margin-top:30px;
+
+    font-size:10px;
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#82755f;
+}
+
+
+/* =========================
+   WEBSITE
+========================= */
+
+#website{
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity 1.2s ease;
+}
+
+#website.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.section{
+    padding:90px 20px;
+}
+
+.container{
+    width:min(1100px,100%);
+    margin:auto;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+
+    min-height:100svh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    color:white;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+}
+
+.hero-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:
+        brightness(.62)
+        contrast(.95);
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.10),
+            rgba(0,0,0,.55)
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    padding:25px;
+
+    animation:
+        heroIn 1.5s ease both;
+}
+
+.hero-label{
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(
+            60px,
+            17vw,
+            125px
+        );
+
+    line-height:.78;
+
+    font-weight:400;
+
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    display:block;
+
+    font-size:.48em;
+
+    margin:22px 0;
+
+    letter-spacing:5px;
+}
+
+.hero-date{
+    margin-top:35px;
+
+    font-size:12px;
+
+    letter-spacing:5px;
+}
+
+.hero-scroll{
+    position:absolute;
+
+    bottom:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:8px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    opacity:.75;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.kicker{
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#b19a6b;
+
+    margin-bottom:20px;
+}
+
+h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(
+            43px,
+            10vw,
+            78px
+        );
+
+    line-height:.94;
+
+    font-weight:500;
+}
+
+.lead{
+    max-width:620px;
+
+    margin-top:28px;
+
+    color:#69635a;
+
+    font-size:14px;
+
+    line-height:1.9;
+}
+
+
+/* =========================
+   INVITATION
+========================= */
+
+.invitation{
+    text-align:center;
+
+    background:#f6f1e8;
+}
+
+.invitation .lead{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.couple-names{
+    margin-top:35px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(
+            38px,
+            9vw,
+            65px
+        );
+}
+
+.couple-names span{
+    color:#b49a68;
+    font-style:italic;
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.details{
+    background:#e9e0d0;
+}
+
+.details-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    margin-top:55px;
+
+    border-top:
+        1px solid rgba(100,80,50,.2);
+
+    border-left:
+        1px solid rgba(100,80,50,.2);
+}
+
+.detail{
+    text-align:center;
+
+    padding:35px 15px;
+
+    border-right:
+        1px solid rgba(100,80,50,.2);
+
+    border-bottom:
+        1px solid rgba(100,80,50,.2);
+}
+
+.detail-number{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:42px;
+
+    color:#b29868;
+}
+
+.detail-title{
+    margin:10px 0;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.detail-text{
+    color:#686157;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+    background:#171717;
+
+    color:white;
+
+    text-align:center;
+}
+
+.countdown h2{
+    color:white;
+}
+
+.timer{
+    max-width:700px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:8px;
+}
+
+.time-box{
+    padding:20px 5px;
+
+    border-top:
+        1px solid rgba(255,255,255,.3);
+}
+
+.time-number{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(
+            35px,
+            8vw,
+            60px
+        );
+}
+
+.time-label{
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#aaa;
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.story{
+    background:#f5efe5;
+}
+
+.story-video{
+    margin-top:45px;
+
+    overflow:hidden;
+
+    background:#111;
+}
+
+.story-video video{
+    width:100%;
+
+    display:block;
+
+    max-height:80vh;
+
+    object-fit:cover;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:#f6f1e8;
+}
+
+.gallery-grid{
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:9px;
+}
+
+.gallery-item{
+    overflow:hidden;
+
+    background:#ddd;
+}
+
+.gallery-item img{
+    width:100%;
+
+    aspect-ratio:4/5;
+
+    object-fit:cover;
+
+    transition:
+        transform 1s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.04);
+}
+
+.gallery-item.wide{
+    grid-column:span 2;
+}
+
+.gallery-item.wide img{
+    aspect-ratio:16/10;
+}
+
+
+/* =========================
+   DRESS CODE
+========================= */
+
+.dress-code{
+    background:#ded4c3;
+
+    text-align:center;
+}
+
+.dress-box{
+    max-width:700px;
+
+    margin:45px auto 0;
+
+    padding:50px 25px;
+
+    border:
+        1px solid rgba(90,70,40,.25);
+}
+
+.dress-title{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:40px;
+
+    margin-bottom:18px;
+}
+
+.dress-text{
+    color:#625b50;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+    text-align:center;
+
+    background:#f8f5ef;
+}
+
+.location-card{
+    max-width:650px;
+
+    margin:45px auto 0;
+
+    padding:50px 25px;
+
+    background:white;
+
+    box-shadow:
+        0 25px 70px rgba(60,45,25,.08);
+}
+
+.location-name{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:42px;
+}
+
+.location-city{
+    margin-top:10px;
+
+    color:#777;
+
+    font-size:13px;
+}
+
+.map-button{
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:15px 28px;
+
+    border:
+        1px solid #a9956d;
+
+    color:#66563e;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp{
+    background:#e8dfd1;
+
+    text-align:center;
+}
+
+.rsvp-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+}
+
+.rsvp-button{
+    padding:15px 28px;
+
+    border:
+        1px solid #a9956d;
+
+    background:transparent;
+
+    color:#66563e;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    padding:80px 20px;
+
+    background:#171717;
+
+    color:white;
+
+    text-align:center;
+}
+
+.footer-names{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:48px;
+}
+
+.footer-date{
+    margin-top:15px;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:#aaa;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes heroIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .section{
+        padding:75px 18px;
+    }
+
+    .gallery-grid{
+        gap:7px;
+    }
+
+    .timer{
+        gap:2px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ENVELOPE
+===================================================== -->
+
+<div id="envelopeScreen">
+
+    <div class="envelope-wrapper">
+
+        <div class="invitation-label">
+            Wedding Invitation
+        </div>
+
+        <div
+            class="envelope"
+            id="envelope"
+        >
+
+            <div class="envelope-body"></div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="envelope-names">
+                Алмаз &amp; Ясмина
+            </div>
+
+            <div class="seal">
+                A &amp; Y
+            </div>
+
+        </div>
+
+        <div class="open-instruction">
+            Конвертти ачуу үчүн басыңыз
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HIDDEN MUSIC
+===================================================== -->
+
+<audio
+    id="weddingMusic"
+    src="./Screen_Recording_20260929_214851_YouTube.mp4"
+    loop
+    preload="auto"
+></audio>
+
+
+<!-- =====================================================
+     WEBSITE
+===================================================== -->
+
+<div id="website">
+
+
+    <!-- HERO -->
+
+    <section class="section hero">
+
+        <div class="hero-image">
+
+            <img
+                src="./38d0251a9bf15bb5b1bac204472ce7c1.jpg"
+                alt="Алмаз жана Ясмина"
+            >
+
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                Wedding Invitation
+            </div>
+
+            <h1>
+                Алмаз
+                <span>&amp;</span>
+                Ясмина
+            </h1>
+
+            <div class="hero-date">
+                27 · 01 · 2027
+            </div>
+
+        </div>
+
+        <div class="hero-scroll">
+            Scroll to discover
+        </div>
+
+    </section>
+
+
+    <!-- INVITATION -->
+
+    <section class="section invitation">
+
+        <div class="container">
+
+            <div class="kicker">
+                Биздин өзгөчө күнүбүз
+            </div>
+
+            <h2>
+                Сизге өзгөчө<br>
+                чакыруу бар
+            </h2>
+
+            <div class="couple-names">
+                Алмаз
+                <span>&amp;</span>
+                Ясмина
+            </div>
+
+            <p class="lead">
+                Тойго келип конок болуп кетиңиздер,
+                эки жашка каалоо-тилек тилеп!
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DETAILS -->
+
+    <section class="section details">
+
+        <div class="container">
+
+            <div class="kicker">
+                Save the date
+            </div>
+
+            <h2>
+                Бул күндү<br>
+                биз менен өткөрүңүз
+            </h2>
+
+            <div class="details-grid">
+
+                <div class="detail">
+
+                    <div class="detail-number">
+                        27
+                    </div>
+
+                    <div class="detail-title">
+                        Күн
+                    </div>
+
+                    <div class="detail-text">
+                        Январь<br>
+                        2027
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-number">
+                        15:00
+                    </div>
+
+                    <div class="detail-title">
+                        Убакыт
+                    </div>
+
+                    <div class="detail-text">
+                        Саат<br>
+                        15:00
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-number">
+                        01
+                    </div>
+
+                    <div class="detail-title">
+                        Шаар
+                    </div>
+
+                    <div class="detail-text">
+                        Бишкек<br>
+                        шаары
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-number">
+                        ♡
+                    </div>
+
+                    <div class="detail-title">
+                        Той ээлери
+                    </div>
+
+                    <div class="detail-text">
+                        Айбек &amp; Арзуу
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COUNTDOWN -->
+
+    <section class="section countdown">
+
+        <div class="container">
+
+            <div class="kicker">
+                Until our day
+            </div>
+
+            <h2>
+                Күтүү башталды
+            </h2>
+
+            <div class="timer">
+
+                <div class="time-box">
+
+                    <div
+                        class="time-number"
+                        id="days"
+                    >
+                        00
+                    </div>
+
+                    <div class="time-label">
+                        күн
+                    </div>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <div
+                        class="time-number"
+                        id="hours"
+                    >
+                        00
+                    </div>
+
+                    <div class="time-label">
+                        саат
+                    </div>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <div
+                        class="time-number"
+                        id="minutes"
+                    >
+                        00
+                    </div>
+
+                    <div class="time-label">
+                        мүнөт
+                    </div>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <div
+                        class="time-number"
+                        id="seconds"
+                    >
+                        00
+                    </div>
+
+                    <div class="time-label">
+                        секунда
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STORY VIDEO -->
+
+    <section class="section story">
+
+        <div class="container">
+
+            <div class="kicker">
+                Our story
+            </div>
+
+            <h2>
+                Биздин<br>
+                көз ирмемдер
+            </h2>
+
+            <div class="story-video">
+
+                <video
+                    src="./VID_20261001_004102_854.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                ></video>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section class="section gallery">
+
+        <div class="container">
+
+            <div class="kicker">
+                Memories
+            </div>
+
+            <h2>
+                Сүйүү<br>
+                көз ирмемдерден турат
+            </h2>
+
+            <div class="gallery-grid">
+
+
+                <div class="gallery-item wide">
+
+                    <img
+                        src="./374edfa2154eae9ea46fa4b0f16525.jpg"
+                        alt="Wedding memory"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="./38d0251a9bf15bb5b1bac204472ce7c1.jpg"
+                        alt="Wedding memory"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="./41e65e38f830c60f7c5511a49f663782.jpg"
+                        alt="Wedding bouquet"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item wide">
+
+                    <img
+                        src="./86ae43136917e1ed5523e25f6c03f7cf.jpg"
+                        alt="Wedding decoration"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="./d5f50704acf66102aa999d6a51344809.jpg"
+                        alt="Wedding rings"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="./fda2901a4c6d0a870284cb85e1d1e6c1.jpg"
+                        alt="Love"
+                        loading="lazy"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DRESS CODE -->
+
+    <section class="section dress-code">
+
+        <div class="container">
+
+            <div class="kicker">
+                Dress code
+            </div>
+
+            <h2>
+                Кеченин<br>
+                стили
+            </h2>
+
+            <div class="dress-box">
+
+                <div class="dress-title">
+                    Elegant &amp; Classic
+                </div>
+
+                <div class="dress-text">
+
+                    Сизге ыңгайлуу болгон
+                    жарашыктуу жана майрамдык
+                    образ менен келсеңиздер болот.
+
+                    <br><br>
+
+                    Кеченин жалпы атмосферасы —
+                    назик, классикалык жана
+                    элеганттуу.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOCATION -->
+
+    <section class="section location">
+
+        <div class="container">
+
+            <div class="kicker">
+                Location
+            </div>
+
+            <h2>
+                Бизди<br>
+                ушул жерден табасыз
+            </h2>
+
+            <div class="location-card">
+
+                <div class="location-name">
+                    Ресторан «Frunze»
+                </div>
+
+                <div class="location-city">
+                    Бишкек шаары
+                </div>
+
+                <a
+                    class="map-button"
+                    href="https://www.google.com/maps/search/?api=1&query=Frunze+restaurant+Bishkek"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Google Maps
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RSVP -->
+
+    <section class="section rsvp">
+
+        <div class="container">
+
+            <div class="kicker">
+                RSVP
+            </div>
+
+            <h2>
+                Сизди күтөбүз
+            </h2>
+
+            <p
+                class="lead"
+                style="margin-left:auto;margin-right:auto;"
+            >
+                Биздин өзгөчө күнүбүздү сиз менен
+                бирге өткөрүү биз үчүн чоң кубаныч.
+            </p>
+
+            <div class="rsvp-buttons">
+
+                <button
+                    class="rsvp-button"
+                    onclick="showThanks()"
+                >
+                    Келем
+                </button>
+
+                <button
+                    class="rsvp-button"
+                    onclick="showThanks()"
+                >
+                    Рахмат
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-names">
+            Алмаз &amp; Ясмина
+        </div>
+
+        <div class="footer-date">
+            27 · 01 · 2027 · БИШКЕК
+        </div>
+
+    </footer>
+
+
+</div>
+
+
+<script>
+
+/* =========================================
+   ALWAYS START FROM TOP
+========================================= */
+
+history.scrollRestoration = "manual";
+
+window.addEventListener("load",function(){
+
+    window.scrollTo(0,0);
+
+});
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const envelope =
+    document.getElementById("envelope");
+
+const envelopeScreen =
+    document.getElementById("envelopeScreen");
+
+const website =
+    document.getElementById("website");
+
+const music =
+    document.getElementById("weddingMusic");
+
+
+let opened = false;
+
+
+/* =========================================
+   ENVELOPE CLICK
+========================================= */
+
+envelope.addEventListener("click",async function(){
+
+    if(opened){
+        return;
+    }
+
+    opened = true;
+
+
+    /* Open envelope */
+
+    envelope.classList.add("open");
+
+
+    /*
+       IMPORTANT:
+       Music starts directly from
+       the user's tap.
+    */
+
+    try{
+
+        music.currentTime = 0;
+
+        await music.play();
+
+    }catch(error){
+
+        console.log(
+            "Music could not start:",
+            error
+        );
+
+    }
+
+
+    /*
+       After envelope animation,
+       reveal website.
+    */
+
+    setTimeout(function(){
+
+        envelopeScreen.classList.add("hide");
+
+        website.classList.add("show");
+
+        window.scrollTo({
+            top:0,
+            behavior:"instant"
+        });
+
+    },900);
+
+});
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+const weddingDate =
+    new Date(
+        "2027-01-27T15:00:00+06:00"
+    ).getTime();
+
+
+function updateCountdown(){
+
+    const now =
+        new Date().getTime();
+
+    const difference =
+        weddingDate - now;
+
+
+    if(difference <= 0){
+
+        document.getElementById("days")
+            .textContent = "00";
+
+        document.getElementById("hours")
+            .textContent = "00";
+
+        document.getElementById("minutes")
+            .textContent = "00";
+
+        document.getElementById("seconds")
+            .textContent = "00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference %
+            (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("days")
+        .textContent =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("hours")
+        .textContent =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+        .textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =========================================
+   RSVP
+========================================= */
+
+function showThanks(){
+
+    alert(
+        "Рахмат! ❤️ Сиздин катышууңуз биз үчүн абдан баалуу."
+    );
+
+}
+
+</script>
+
+</body>
+   </html>
