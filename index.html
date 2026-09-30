@@ -1,758 +1,1384 @@
-Create a complete luxury wedding invitation website for GitHub Pages.
-
-IMPORTANT:
-Generate the actual working website code, NOT another prompt.
-Return ONE complete, ready-to-use index.html file containing HTML, CSS and JavaScript.
-
-The website must work directly after uploading index.html to the root of the GitHub repository.
-
-Do not use React.
-Do not use npm.
-Do not use a build system.
-Do not require installation.
-Use only HTML, CSS and vanilla JavaScript.
-
-==================================================
-PROJECT
-==================================================
-
-Create a premium digital wedding invitation website for:
-
-АЛМАЗ & ЯСМИНА
-
-Wedding date:
-27.01.2027
-
-Time:
-15:00
-
-Location:
-Бишкек шаары
-
-Venue:
-Ресторан "Frunze"
-
-Wedding hosts:
-АЙБЕК & АРЗУУ
-
-Invited guest:
-БЕГИМЖАН
-
-Invitation text:
-
-"Тойго келип конок болуп кетиңиздер,
-эки жашка каалоо-тилек тилеп!"
-
-==================================================
-MAIN VISUAL STYLE
-==================================================
-
-The entire website must look like a high-end luxury wedding invitation.
-
-Style:
-
-- luxury
-- elegant
-- romantic
-- timeless
-- sophisticated
-- editorial wedding aesthetic
-- quiet luxury
-- premium wedding magazine
-- cinematic photography
-- ivory
-- champagne
-- warm beige
-- soft cream
-- subtle gold
-- white
-- elegant black typography
-
-Do NOT make it childish.
-
-Do NOT use bright colors.
-
-Do NOT use excessive gold.
-
-Do NOT use excessive decorative elements.
-
-The design should feel expensive, minimal and sophisticated.
-
-Use elegant serif typography for the couple's names and main headings.
-
-Use a clean elegant font for body text.
-
-Use subtle script typography only for small decorative accents.
-
-==================================================
-FIRST SCREEN — ENVELOPE
-==================================================
-
-When the website first opens, show ONLY a luxury wedding envelope.
-
-The actual wedding website must remain hidden until the envelope is opened.
-
-Create a beautiful centered ivory/champagne invitation envelope.
-
-The envelope should have:
-
-- premium paper texture
-- subtle cream background
-- thin champagne-gold border
-- elegant wax seal
-- initials "A & Y"
-- realistic soft shadow
-- subtle 3D depth
-- refined luxury appearance
-
-Above or below the envelope display:
-
-"СИЗГЕ ӨЗГӨЧӨ ЧАКЫРУУ БАР"
-
-Below:
-
-"Ачуу үчүн конвертти басыңыз"
-
-The envelope must be fully responsive and centered on mobile.
-
-==================================================
-ENVELOPE OPENING
-==================================================
-
-When the user taps/clicks the envelope:
-
-1. The envelope opens with a smooth elegant animation.
-2. The envelope screen fades away.
-3. The wedding website appears.
-4. The wedding music starts immediately.
-5. Smooth scrolling becomes available.
-6. A music control button appears.
-
-The transition should feel cinematic and luxurious.
-
-Do not make the animation too fast.
-
-Do not use childish effects.
-
-==================================================
-MUSIC
-==================================================
-
-IMPORTANT:
-
-There is an audio file uploaded to the GitHub repository.
-
-Find and use the REAL audio file that exists in the repository.
-
-DO NOT invent a filename.
-
-DO NOT use:
-
-music.mp3
-audio/music.mp3
-assets/music.mp3
-
-unless that exact file actually exists.
-
-Use the exact filename and exact relative path of the audio file that exists in the repository.
-
-The audio must begin ONLY after the user taps the envelope.
-
-This is important because mobile browsers block automatic audio playback.
-
-Use the click/touch event of the envelope itself to call audio.play().
-
-Example logic:
-
-envelopeButton.addEventListener("click", function() {
-    music.play().catch(() => {});
-});
-
-Do not call music.play() automatically when the page loads.
-
-Set volume around 0.6.
-
-Create a floating elegant music button.
-
-When music is playing:
-show a music icon.
-
-When music is paused:
-show a muted icon.
-
-The user must be able to pause and resume the music.
-
-Do not create multiple audio elements.
-
-==================================================
-GITHUB FILE PATHS
-==================================================
-
-The following real image files already exist in the repository root.
-
-Use these exact filenames:
-
-1.
-374edfa2154eae9ea46fa4b0f16525.jpg
-
-2.
-38d0251a9bf15bb5b1bac204472ce7c1.jpg
-
-3.
-41e65e38f830c60f7c5511a49f663782.jpg
-
-4.
-86ae43136917e1ed5523e25f6c03f7cf.jpg
-
-5.
-d5f50704acf66102aa999d6a51344809.jpg
-
-6.
-fda2901a4c6d0a870284cb85e1d1e6c1.jpg
-
-The video file is:
-
-VID_20261001_004102_854.mp4
-
-IMPORTANT:
-
-All of these files are located in the ROOT of the repository.
-
-Therefore use paths such as:
-
-./374edfa2154eae9ea46fa4b0f16525.jpg
-
-NOT:
-
-./images/374edfa2154eae9ea46fa4b0f16525.jpg
-
-NOT:
-
-/images/...
-
-NOT:
-
-assets/...
-
-Do not invent folders.
-
-Do not rename the files.
-
-Do not invent new filenames.
-
-==================================================
-IMAGE GALLERY
-==================================================
-
-Use all six real JPG images in the website.
-
-Create a premium editorial wedding gallery.
-
-The photos should appear naturally throughout the invitation rather than as a basic grid only.
-
-Use elegant combinations of:
-
-- full-screen photographs
-- cinematic image sections
-- editorial gallery
-- close-up details
-- subtle image transitions
-
-Do not distort the images.
-
-Use:
-
-object-fit: cover;
-
-where appropriate.
-
-Maintain the original image proportions whenever possible.
-
-Add subtle fade-in animations when sections enter the viewport.
-
-==================================================
-HERO SECTION
-==================================================
-
-Use one of the provided wedding photographs as the main hero image.
-
-Create a full-screen cinematic hero section.
-
-Display:
-
-АЛМАЗ
-&
-ЯСМИНА
-
-Below:
-
-27.01.2027
-
-Then:
-
-"Wedding Invitation"
-
-Use elegant serif typography.
-
-The couple's names must be the main visual focus.
-
-Use a very subtle slow zoom effect on the background photograph.
-
-==================================================
-INTRODUCTION
-==================================================
-
-Create an elegant invitation section.
-
-Title:
-
-"Чакыруу"
-
-Text:
-
-"Тойго келип конок болуп кетиңиздер,
-эки жашка каалоо-тилек тилеп!"
-
-Keep the section minimal.
-
-Use lots of whitespace.
-
-==================================================
-DATE SECTION
-==================================================
-
-Create a luxury SAVE THE DATE section.
-
-Display:
-
-SAVE THE DATE
-
-27.01.2027
-
-Then:
-
-"27 январь 2027"
-
-Create a live countdown to:
-
-27 January 2027 at 15:00 Bishkek local time.
-
-Show:
-
-КҮН
-СААТ
-МҮНӨТ
-СЕКУНД
-
-The countdown must automatically update every second.
-
-Do NOT use any other date.
-
-Do NOT invent a different date.
-
-==================================================
-LOVE STORY
-==================================================
-
-Create a cinematic romantic section.
-
-Use one of the provided photographs.
-
-Title:
-
-"LOVE STORY"
-
-Text:
-
-"Эки жүрөк — бир тагдыр..."
-
-Use soft warm lighting and elegant typography.
-
-The image should slowly zoom while scrolling.
-
-==================================================
-ROMANTIC PHOTO SECTIONS
-==================================================
-
-Use the provided photographs creatively.
-
-Include sections inspired by:
-
-- wedding rings
-- flowers
-- romantic couple moments
-- symbolic love
-- wedding atmosphere
-
-Do not add unrelated stock photos.
-
-Only use the real images provided in the repository.
-
-==================================================
-VIDEO SECTION
-==================================================
-
-Use the existing video:
-
-VID_20261001_004102_854.mp4
-
-Create a cinematic full-width video section.
-
-The video should play silently by default.
-
-Use:
-
-autoplay
-muted
-loop
-playsinline
-
-Do not force audio from the video.
-
-Place the video between elegant wedding sections.
-
-Make it responsive on mobile.
-
-Do not stretch or distort the video.
-
-==================================================
-DRESS CODE
-==================================================
-
-Create an elegant Dress Code section.
-
-Heading:
-
-DRESS CODE
-
-Subheading:
-
-Elegant & Timeless
-
-Display four elegant color swatches:
-
-IVORY
-CHAMPAGNE
-BEIGE
-BLACK
-
-Text:
-
-"Кеченин жалпы атмосферасына шайкеш,
-жарашыктуу жана назик образ тандап
-келишиңиздерди өтүнөбүз."
-
-Use subtle circles or small elegant color blocks.
-
-Do not make this section colorful.
-
-==================================================
-VENUE
-==================================================
-
-Create a luxury venue section.
-
-Display:
-
-THE VENUE
-
-Ресторан "Frunze"
-
-Бишкек шаары
-
-27.01.2027
-
-15:00
-
-Add an elegant button:
-
-"КАРТАДАН АЧУУ →"
-
-The button should open Google Maps in a new tab and search for:
-
-Frunze restaurant Bishkek
-
-Do not invent a street address.
-
-==================================================
-HOSTS
-==================================================
-
-Create a section:
-
-"Тойду чакыргандар"
-
-АЙБЕК & АРЗУУ
-
-Keep it minimal and elegant.
-
-==================================================
-SPECIAL GUEST
-==================================================
-
-Create a personalized invitation section.
-
-Heading:
-
-"Өзгөчө конок"
-
-Name:
-
-БЕГИМЖАН
-
-Text:
-
-"Сизди биздин кубанычыбызды
-бөлүшүүгө чакырабыз."
-
-Make this section feel personal and luxurious.
-
-==================================================
-RSVP
-==================================================
-
-Create an RSVP section.
-
-Heading:
-
-RSVP
-
-Text:
-
-"Сизди күтөбүз"
-
-Additional text:
-
-"Бул өзгөчө күндө биз менен бирге болуп,
-кубанычыбызды бөлүшүп кетишиңиздерди
-каалайбыз."
-
-Create two elegant buttons:
-
-"КАТЫШАМ"
-
-"КАТЫША АЛБАЙМ"
-
-Do NOT invent a phone number.
-
-Do NOT create a fake WhatsApp number.
-
-For now the buttons may show a small elegant message such as:
-
-"Рахмат!"
-
-==================================================
-FINAL SECTION
-==================================================
-
-Create a cinematic final section using one of the provided wedding photographs.
-
-Display:
-
-"Сиздерди күтөбүз"
-
-Then:
-
-АЛМАЗ & ЯСМИНА
-
-Then:
-
-27.01.2027
-
-Use a very elegant fade-out style.
-
-==================================================
-MOBILE FIRST
-==================================================
-
-The website is primarily designed for smartphones.
-
-It must work beautifully on:
-
-- Android
-- Samsung phones
-- iPhone
-- Chrome mobile
-- Safari mobile
-
-Use:
-
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-No horizontal scrolling.
+<title>Алмаз & Ясмина — Wedding Invitation</title>
 
-All buttons must be easy to tap.
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-The envelope must be perfectly centered.
+<style>
+:root{
+    --ivory:#f8f5ef;
+    --cream:#eee8dc;
+    --champagne:#d8c6a6;
+    --gold:#b59b68;
+    --black:#171717;
+    --white:#fff;
+    --soft:#777064;
+}
 
-Typography must remain readable on small screens.
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-Images must load correctly on mobile.
+html{
+    scroll-behavior:smooth;
+}
 
-Video must be responsive.
+body{
+    background:var(--ivory);
+    color:var(--black);
+    font-family:"Inter",sans-serif;
+    overflow-x:hidden;
+}
 
-Music must work after the envelope is tapped.
+button{
+    font-family:inherit;
+}
 
-==================================================
-ANIMATIONS
-==================================================
+img{
+    display:block;
+    width:100%;
+}
 
-Use only elegant animations:
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-- envelope opening
-- fade in
-- fade out
-- slow image zoom
-- smooth scrolling
-- subtle parallax
-- section reveal
-- gentle text animation
+/* =========================
+   ENVELOPE
+========================= */
 
-Avoid excessive animations.
+#envelopeScreen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:
+        radial-gradient(circle at center,#fffdf8 0%,#eee7da 70%,#ddd1bd 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    transition:opacity 1s ease, visibility 1s ease;
+}
 
-No flashing.
+#envelopeScreen.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
 
-No bouncing buttons.
+.envelope-wrap{
+    width:min(90vw,420px);
+    text-align:center;
+}
 
-No childish transitions.
+.small-label{
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#827966;
+    margin-bottom:28px;
+}
 
-==================================================
-ERROR HANDLING
-==================================================
+.envelope{
+    position:relative;
+    width:100%;
+    aspect-ratio:1.45;
+    cursor:pointer;
+    perspective:1000px;
+    filter:drop-shadow(0 25px 35px rgba(60,45,25,.18));
+}
 
-Very important:
+.envelope-body{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(145deg,#fdfbf7,#e9dfcf);
+    border:1px solid rgba(160,140,105,.35);
+    overflow:hidden;
+}
 
-Do not allow broken image icons to appear.
+.envelope-body:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(32deg,transparent 49.5%,rgba(170,150,115,.25) 50%,transparent 50.5%),
+        linear-gradient(-32deg,transparent 49.5%,rgba(170,150,115,.25) 50%,transparent 50.5%);
+}
 
-Add JavaScript error handling for images.
+.flap{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:65%;
+    background:linear-gradient(160deg,#fffdf9,#e7dccb);
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top center;
+    transition:transform 1s cubic-bezier(.2,.7,.2,1);
+    z-index:3;
+    border-top:1px solid rgba(150,130,100,.2);
+}
 
-If an image fails to load, replace it with a neutral elegant placeholder instead of showing a broken image icon.
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
 
-The website must not break if one media file fails.
+.seal{
+    position:absolute;
+    z-index:5;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#cbb58a,#a98d59);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Cormorant Garamond",serif;
+    font-size:26px;
+    box-shadow:0 10px 25px rgba(80,60,30,.25);
+    transition:.5s ease;
+}
 
-For audio:
+.envelope:hover .seal{
+    transform:translate(-50%,-50%) scale(1.05);
+}
 
-If audio.play() is rejected by the browser, do not crash the website.
+.envelope-text{
+    position:absolute;
+    z-index:2;
+    left:50%;
+    top:74%;
+    transform:translate(-50%,-50%);
+    font-family:"Cormorant Garamond",serif;
+    font-size:24px;
+    letter-spacing:2px;
+}
 
-Keep the music button available so the user can manually start the music.
+.open-text{
+    margin-top:28px;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#817765;
+}
 
-==================================================
-TECHNICAL REQUIREMENTS
-==================================================
+/* =========================
+   MAIN
+========================= */
 
-Everything must be inside ONE index.html file.
+#site{
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 1.2s ease;
+}
 
-Include:
+#site.show{
+    opacity:1;
+    visibility:visible;
+}
 
-HTML
-CSS
-JavaScript
+.section{
+    position:relative;
+    padding:90px 22px;
+}
 
-No external frameworks.
+.container{
+    width:min(1100px,100%);
+    margin:auto;
+}
 
-No React.
+/* =========================
+   HERO
+========================= */
 
-No npm.
+.hero{
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:#eee7db;
+}
 
-No build tools.
+.hero-image{
+    position:absolute;
+    inset:0;
+}
 
-No dependencies.
+.hero-image img{
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.65);
+}
 
-No external image URLs.
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(to bottom,rgba(0,0,0,.12),rgba(0,0,0,.45));
+}
 
-No fake image URLs.
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    padding:25px;
+    animation:fadeUp 1.5s ease both;
+}
 
-No fake audio URLs.
+.hero-small{
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
 
-No fake filenames.
+.hero h1{
+    font-family:"Cormorant Garamond",serif;
+    font-weight:400;
+    font-size:clamp(60px,16vw,125px);
+    line-height:.78;
+    letter-spacing:-3px;
+}
 
-Use only the real files available in the GitHub repository.
+.hero h1 span{
+    display:block;
+    font-size:.48em;
+    letter-spacing:5px;
+    margin:22px 0;
+}
 
-All paths must be relative.
+.hero-date{
+    margin-top:35px;
+    font-size:13px;
+    letter-spacing:4px;
+}
 
-==================================================
-CRITICAL FILE REQUIREMENT
-==================================================
+.scroll{
+    position:absolute;
+    bottom:28px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:9px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
 
-Before generating the final code, carefully verify the filenames.
+/* =========================
+   TYPOGRAPHY
+========================= */
 
-Known real image files:
+.kicker{
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
+}
 
-374edfa2154eae9ea46fa4b0f16525.jpg
-38d0251a9bf15bb5b1bac204472ce7c1.jpg
-41e65e38f830c60f7c5511a49f663782.jpg
-86ae43136917e1ed5523e25f6c03f7cf.jpg
-d5f50704acf66102aa999d6a51344809.jpg
-fda2901a4c6d0a870284cb85e1d1e6c1.jpg
+h2{
+    font-family:"Cormorant Garamond",serif;
+    font-weight:500;
+    font-size:clamp(42px,10vw,75px);
+    line-height:.95;
+}
 
-Known real video:
+.lead{
+    margin-top:25px;
+    max-width:600px;
+    line-height:1.9;
+    color:#686258;
+    font-size:14px;
+}
 
-VID_20261001_004102_854.mp4
+/* =========================
+   INVITATION
+========================= */
 
-For audio, inspect the repository and use the exact real audio filename if an audio file exists.
+.invitation{
+    text-align:center;
+    background:var(--ivory);
+}
 
-Do not invent an audio filename.
+.invitation .lead{
+    margin-left:auto;
+    margin-right:auto;
+}
 
-==================================================
-FINAL RESULT
-==================================================
+.names{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(38px,9vw,65px);
+    margin-top:35px;
+}
 
-The finished website should feel like a premium luxury wedding invitation, not a normal website.
+.amp{
+    color:var(--gold);
+    font-style:italic;
+}
 
-The user experience should be:
+/* =========================
+   DETAILS
+========================= */
 
-OPEN WEBSITE
-↓
-SEE LUXURY ENVELOPE
-↓
-TAP ENVELOPE
-↓
-ENVELOPE OPENS
-↓
-MUSIC STARTS
-↓
-ALMAZ & YASMINA
-↓
-27.01.2027
-↓
-LOVE STORY
-↓
-WEDDING PHOTOS
-↓
-VIDEO
-↓
-DRESS CODE
-↓
-VENUE
-↓
-HOSTS
-↓
-SPECIAL GUEST
-↓
-RSVP
-↓
-FINAL WEDDING MESSAGE
+.details{
+    background:#e9e1d3;
+}
 
-Use the following exact wedding information:
+.details-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    margin-top:55px;
+    border-top:1px solid rgba(100,80,50,.2);
+    border-left:1px solid rgba(100,80,50,.2);
+}
 
-АЛМАЗ & ЯСМИНА
-27.01.2027
-15:00
-Бишкек шаары
-Ресторан "Frunze"
-АЙБЕК & АРЗУУ
-БЕГИМЖАН
+.detail{
+    padding:35px 20px;
+    border-right:1px solid rgba(100,80,50,.2);
+    border-bottom:1px solid rgba(100,80,50,.2);
+    text-align:center;
+}
 
-Invitation:
+.detail-number{
+    font-family:"Cormorant Garamond",serif;
+    font-size:40px;
+    color:var(--gold);
+}
 
-"Тойго келип конок болуп кетиңиздер,
-эки жашка каалоо-тилек тилеп!"
+.detail-title{
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin:10px 0;
+}
 
-IMPORTANT:
-Return the COMPLETE WORKING index.html code only.
-Do not return another explanation.
-Do not return a prompt.
-Do not use placeholder filenames for the six known images.
-Do not invent the wedding date.
-Do not invent a phone number.
-Do not invent an audio filename.
+.detail-text{
+    color:#625d53;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+    text-align:center;
+    background:#171717;
+    color:white;
+}
+
+.countdown h2{
+    color:white;
+}
+
+.timer{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    max-width:650px;
+    margin:50px auto 0;
+}
+
+.time-box{
+    border-top:1px solid rgba(255,255,255,.3);
+    padding:20px 5px;
+}
+
+.time-number{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(35px,8vw,60px);
+}
+
+.time-label{
+    font-size:8px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#aaa;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-section{
+    background:#f5f0e7;
+}
+
+.video-frame{
+    margin-top:45px;
+    position:relative;
+    overflow:hidden;
+    background:#111;
+}
+
+.video-frame video{
+    width:100%;
+    display:block;
+    max-height:80vh;
+    object-fit:cover;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:var(--ivory);
+}
+
+.gallery-grid{
+    margin-top:45px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    background:#ddd;
+}
+
+.gallery-item img{
+    aspect-ratio:4/5;
+    object-fit:cover;
+    transition:transform 1s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.04);
+}
+
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(4){
+    grid-column:span 2;
+}
+
+.gallery-item:nth-child(1) img,
+.gallery-item:nth-child(4) img{
+    aspect-ratio:16/10;
+}
+
+/* =========================
+   DRESS CODE
+========================= */
+
+.dress-code{
+    background:#ded4c3;
+    text-align:center;
+}
+
+.dress-code-box{
+    margin-top:45px;
+    padding:45px 25px;
+    border:1px solid rgba(90,70,40,.25);
+}
+
+.dress-code-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.dress-code-text{
+    color:#625b50;
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+    text-align:center;
+    background:#f8f5ef;
+}
+
+.location-card{
+    margin:45px auto 0;
+    max-width:650px;
+    padding:45px 25px;
+    background:white;
+    box-shadow:0 20px 60px rgba(60,45,25,.08);
+}
+
+.location-name{
+    font-family:"Cormorant Garamond",serif;
+    font-size:40px;
+}
+
+.location-address{
+    color:#777;
+    margin-top:10px;
+    font-size:13px;
+}
+
+.map-button,
+.rsvp-button{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 28px;
+    border:1px solid #a89570;
+    background:transparent;
+    color:#62543d;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.map-button:hover,
+.rsvp-button:hover{
+    background:#a89570;
+    color:white;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp{
+    background:#e8dfd1;
+    text-align:center;
+}
+
+.rsvp-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:35px;
+}
+
+.rsvp-button{
+    margin-top:0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    padding:75px 20px;
+    background:#171717;
+    color:white;
+    text-align:center;
+}
+
+.footer-names{
+    font-family:"Cormorant Garamond",serif;
+    font-size:48px;
+}
+
+.footer-date{
+    margin-top:15px;
+    font-size:10px;
+    letter-spacing:4px;
+    color:#aaa;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-button{
+    position:fixed;
+    z-index:900;
+    right:18px;
+    bottom:18px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.5);
+    background:rgba(30,30,30,.75);
+    backdrop-filter:blur(10px);
+    color:white;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+}
+
+.music-button.playing{
+    animation:musicPulse 2s infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes musicPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .section{
+        padding:75px 18px;
+    }
+
+    .details-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .detail{
+        padding:30px 10px;
+    }
+
+    .timer{
+        gap:3px;
+    }
+
+    .gallery-grid{
+        gap:7px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     ENVELOPE
+========================= -->
+
+<div id="envelopeScreen">
+
+    <div class="envelope-wrap">
+
+        <div class="small-label">
+            Wedding Invitation
+        </div>
+
+        <div class="envelope" id="envelope">
+
+            <div class="envelope-body"></div>
+
+            <div class="flap"></div>
+
+            <div class="envelope-text">
+                Алмаз & Ясмина
+            </div>
+
+            <div class="seal">
+                A&nbsp;&amp;&nbsp;Y
+            </div>
+
+        </div>
+
+        <div class="open-text">
+            Конвертти ачуу үчүн басыңыз
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN WEBSITE
+========================= -->
+
+<div id="site">
+
+    <!-- HERO -->
+
+    <section class="section hero">
+
+        <div class="hero-image">
+            <img
+                src="./38d0251a9bf15bb5b1bac204472ce7c1.jpg"
+                alt="Алмаз жана Ясмина"
+            >
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                Wedding Invitation
+            </div>
+
+            <h1>
+                Алмаз
+                <span>&amp;</span>
+                Ясмина
+            </h1>
+
+            <div class="hero-date">
+                27 · 01 · 2027
+            </div>
+
+        </div>
+
+        <div class="scroll">
+            Scroll to discover
+        </div>
+
+    </section>
+
+
+    <!-- INVITATION -->
+
+    <section class="section invitation">
+
+        <div class="container">
+
+            <div class="kicker">
+                Биздин өзгөчө күнүбүз
+            </div>
+
+            <h2>
+                Сизге өзгөчө<br>
+                чакыруу бар
+            </h2>
+
+            <div class="names">
+                Алмаз <span class="amp">&amp;</span> Ясмина
+            </div>
+
+            <p class="lead">
+                Тойго келип конок болуп кетиңиздер,
+                эки жашка каалоо-тилек тилеп!
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DETAILS -->
+
+    <section class="section details">
+
+        <div class="container">
+
+            <div class="kicker">
+                Save the date
+            </div>
+
+            <h2>
+                Бул күндү<br>
+                биз менен өткөрүңүз
+            </h2>
+
+            <div class="details-grid">
+
+                <div class="detail">
+                    <div class="detail-number">27</div>
+                    <div class="detail-title">Күн</div>
+                    <div class="detail-text">
+                        Январь<br>2027
+                    </div>
+                </div>
+
+                <div class="detail">
+                    <div class="detail-number">15:00</div>
+                    <div class="detail-title">Убакыт</div>
+                    <div class="detail-text">
+                        Саат<br>15:00
+                    </div>
+                </div>
+
+                <div class="detail">
+                    <div class="detail-number">01</div>
+                    <div class="detail-title">Шаар</div>
+                    <div class="detail-text">
+                        Бишкек<br>шаары
+                    </div>
+                </div>
+
+                <div class="detail">
+                    <div class="detail-number">04</div>
+                    <div class="detail-title">Коноктор</div>
+                    <div class="detail-text">
+                        Айбек & Арзуу<br>
+                        Бегимжан
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COUNTDOWN -->
+
+    <section class="section countdown">
+
+        <div class="container">
+
+            <div class="kicker">
+                Until our day
+            </div>
+
+            <h2>
+                Күтүү башталды
+            </h2>
+
+            <div class="timer">
+
+                <div class="time-box">
+                    <div class="time-number" id="days">00</div>
+                    <div class="time-label">күн</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="time-number" id="hours">00</div>
+                    <div class="time-label">саат</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="time-number" id="minutes">00</div>
+                    <div class="time-label">мүнөт</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="time-number" id="seconds">00</div>
+                    <div class="time-label">секунда</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VIDEO -->
+
+    <section class="section video-section">
+
+        <div class="container">
+
+            <div class="kicker">
+                Our story
+            </div>
+
+            <h2>
+                Биздин<br>
+                көз ирмемдер
+            </h2>
+
+            <div class="video-frame">
+
+                <video
+                    src="./VID_20261001_004102_854.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                ></video>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section class="section gallery">
+
+        <div class="container">
+
+            <div class="kicker">
+                Memories
+            </div>
+
+            <h2>
+                Сүйүү<br>
+                көз ирмемдерден турат
+            </h2>
+
+            <div class="gallery-grid">
+
+                <div class="gallery-item">
+                    <img
+                        src="./374edfa2154eae9ea46fa4b0f16525.jpg"
+                        alt="Wedding memory"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="./38d0251a9bf15bb5b1bac204472ce7c1.jpg"
+                        alt="Wedding memory"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="./41e65e38f830c60f7c5511a49f663782.jpg"
+                        alt="Wedding bouquet"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="./86ae43136917e1ed5523e25f6c03f7cf.jpg"
+                        alt="Wedding decor"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="./d5f50704acf66102aa999d6a51344809.jpg"
+                        alt="Wedding rings"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="./fda2901a4c6d0a870284cb85e1d1e6c1.jpg"
+                        alt="Love"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DRESS CODE -->
+
+    <section class="section dress-code">
+
+        <div class="container">
+
+            <div class="kicker">
+                Dress code
+            </div>
+
+            <h2>
+                Кеченин<br>
+                стили
+            </h2>
+
+            <div class="dress-code-box">
+
+                <div class="dress-code-title">
+                    Elegant &amp; Classic
+                </div>
+
+                <div class="dress-code-text">
+                    Сизге ыңгайлуу болгон
+                    жарашыктуу жана майрамдык
+                    образ менен келсеңиздер болот.
+                    <br><br>
+                    Кеченин жалпы атмосферасы —
+                    назик, классикалык жана
+                    элеганттуу.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOCATION -->
+
+    <section class="section location">
+
+        <div class="container">
+
+            <div class="kicker">
+                Location
+            </div>
+
+            <h2>
+                Бизди<br>
+                ушул жерден табасыз
+            </h2>
+
+            <div class="location-card">
+
+                <div class="location-name">
+                    Ресторан «Frunze»
+                </div>
+
+                <div class="location-address">
+                    Бишкек шаары
+                </div>
+
+                <a
+                    class="map-button"
+                    href="https://www.google.com/maps/search/?api=1&query=Frunze+restaurant+Bishkek"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Google Maps
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RSVP -->
+
+    <section class="section rsvp">
+
+        <div class="container">
+
+            <div class="kicker">
+                RSVP
+            </div>
+
+            <h2>
+                Сизди күтөбүз
+            </h2>
+
+            <p class="lead" style="margin-left:auto;margin-right:auto;">
+                Биздин өзгөчө күнүбүздү сиз менен
+                бирге өткөрүү биз үчүн чоң кубаныч.
+            </p>
+
+            <div class="rsvp-buttons">
+
+                <button
+                    class="rsvp-button"
+                    onclick="thankYou()"
+                >
+                    Келем
+                </button>
+
+                <button
+                    class="rsvp-button"
+                    onclick="thankYou()"
+                >
+                    Рахмат
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-names">
+            Алмаз &amp; Ясмина
+        </div>
+
+        <div class="footer-date">
+            27 · 01 · 2027 · БИШКЕК
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop preload="auto"></audio>
+
+<button
+    id="musicButton"
+    class="music-button"
+    style="display:none;"
+    aria-label="Музыка"
+>
+    ♫
+</button>
+
+
+<script>
+
+/* =====================================
+   ENVELOPE
+===================================== */
+
+const envelopeScreen = document.getElementById("envelopeScreen");
+const envelope = document.getElementById("envelope");
+const site = document.getElementById("site");
+
+const music = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+
+let opened = false;
+let musicReady = false;
+
+
+/* =====================================
+   AUTOMATICALLY FIND MUSIC FILE
+   IN GITHUB REPOSITORY
+===================================== */
+
+const REPO_API =
+    "https://api.github.com/repos/begimzaneralieva-ops/Toigo-chakyrui/contents/";
+
+async function findMusic(){
+
+    try{
+
+        const response = await fetch(REPO_API);
+
+        if(!response.ok) return;
+
+        const files = await response.json();
+
+        const audioFile = files.find(file => {
+
+            const name = file.name.toLowerCase();
+
+            return (
+                name.endsWith(".mp3") ||
+                name.endsWith(".m4a") ||
+                name.endsWith(".wav") ||
+                name.endsWith(".ogg")
+            );
+
+        });
+
+        if(audioFile){
+
+            music.src = audioFile.download_url;
+
+            musicReady = true;
+
+            musicButton.style.display = "flex";
+
+        }
+
+    }catch(error){
+
+        console.log("Music file not found yet.");
+
+    }
+
+}
+
+findMusic();
+
+
+/* =====================================
+   OPEN INVITATION
+===================================== */
+
+envelope.addEventListener("click", async function(){
+
+    if(opened) return;
+
+    opened = true;
+
+    envelope.classList.add("open");
+
+    setTimeout(() => {
+
+        envelopeScreen.classList.add("hide");
+
+        site.classList.add("show");
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    },700);
+
+
+    /* Music starts ONLY after user tap */
+
+    if(musicReady){
+
+        try{
+
+            await music.play();
+
+            musicButton.classList.add("playing");
+
+        }catch(error){
+
+            console.log("Music waiting for interaction.");
+
+        }
+
+    }
+
+});
+
+
+/* =====================================
+   MUSIC BUTTON
+===================================== */
+
+musicButton.addEventListener("click", async function(){
+
+    if(!musicReady) return;
+
+    if(music.paused){
+
+        try{
+
+            await music.play();
+
+            musicButton.classList.add("playing");
+
+        }catch(error){}
+
+    }else{
+
+        music.pause();
+
+        musicButton.classList.remove("playing");
+
+    }
+
+});
+
+
+/* =====================================
+   COUNTDOWN
+===================================== */
+
+const weddingDate =
+    new Date("2027-01-27T15:00:00+06:00").getTime();
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+
+    const distance = weddingDate - now;
+
+    if(distance <= 0){
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        return;
+    }
+
+    const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours =
+        Math.floor(
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+    const minutes =
+        Math.floor(
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+    const seconds =
+        Math.floor(
+            (distance % (1000 * 60))
+            / 1000
+        );
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2,"0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+
+/* =====================================
+   RSVP
+===================================== */
+
+function thankYou(){
+
+    alert(
+        "Рахмат! ❤️ Сиздин каалоо-тилегиңиз биз үчүн абдан баалуу."
+    );
+
+}
+
+
+/* =====================================
+   VIDEO FALLBACK
+===================================== */
+
+const video = document.querySelector("video");
+
+video.addEventListener("error",function(){
+
+    console.log("Video could not be loaded.");
+
+});
+
+</script>
+
+</body>
+</html>
