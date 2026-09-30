@@ -1,2266 +1,566 @@
-<!DOCTYPE html>
-<html lang="ky">
-<head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Алмаз & Ясмина — үйлөнүү тоюна чакыруу"
-  >
-
-  <title>Алмаз & Ясмина | Wedding Invitation</title>
-
-  <!-- Elegant Serif Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-
-    /* =========================================================
-       ROOT
-    ========================================================= */
-
-    :root {
-      --ivory: #f8f3eb;
-      --cream: #eee4d5;
-      --champagne: #d8c2a2;
-      --gold: #a9824a;
-      --dark-gold: #806238;
-      --text: #332b24;
-      --soft-text: #76695c;
-      --white: #fffdf9;
-
-      --serif: "Cormorant Garamond", Georgia, serif;
-      --sans: "Montserrat", Arial, sans-serif;
-      --script: "Allura", cursive;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--ivory);
-      color: var(--text);
-      font-family: var(--sans);
-      overflow-x: hidden;
-    }
-
-    body.locked {
-      overflow: hidden;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    button,
-    a {
-      font-family: inherit;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-
-    /* =========================================================
-       INTRO / ENVELOPE
-    ========================================================= */
-
-    .intro {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        radial-gradient(
-          circle at center,
-          #fffdf8 0%,
-          #f3e9da 55%,
-          #e6d6bf 100%
-        );
-
-      transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
-    }
-
-    .intro.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .intro-inner {
-      width: min(90%, 420px);
-      text-align: center;
-    }
-
-    .intro-small {
-      font-size: 10px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 15px;
-    }
-
-    .intro-title {
-      font-family: var(--serif);
-      font-size: clamp(28px, 8vw, 48px);
-      font-weight: 400;
-      margin-bottom: 35px;
-    }
+Rewrite the entire wedding invitation website from scratch and fix all previous media-loading and audio problems.
 
-    /* Envelope */
+IMPORTANT:
+The website will be hosted on GitHub Pages.
 
-    .envelope-wrapper {
-      position: relative;
-      width: min(82vw, 360px);
-      aspect-ratio: 1.45 / 1;
-      margin: 0 auto 35px;
+The previous version had broken images and music because the HTML referenced filenames that did not actually exist in the GitHub repository.
 
-      perspective: 1000px;
-    }
+DO NOT use fake filenames such as:
+assets/couple.jpg
+assets/music.mp3
+assets/flowers.jpg
 
-    .envelope {
-      position: relative;
-      width: 100%;
-      height: 100%;
+unless those exact files actually exist.
 
-      background: #fdfaf4;
+The new code must be designed specifically for the files that are uploaded to the same GitHub repository.
 
-      border: 1px solid rgba(169,130,74,.35);
+==================================================
+GITHUB PAGES COMPATIBILITY
+==================================================
 
-      box-shadow:
-        0 25px 60px rgba(92,70,40,.15),
-        0 5px 15px rgba(92,70,40,.08);
+Create a single complete index.html that works correctly on GitHub Pages.
 
-      transform-style: preserve-3d;
-      transition: transform 1.5s ease;
-    }
+Use ONLY relative paths.
 
-    .envelope.open {
-      transform: translateY(20px) scale(.96);
-    }
+Do not use:
+- local computer paths
+- sandbox paths
+- Windows paths
+- absolute filesystem paths
+- localhost URLs
 
-    .envelope-front {
-      position: absolute;
-      inset: 0;
+All media must load from the same GitHub repository.
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+Use paths such as:
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.9),
-          rgba(240,229,211,.95)
-        );
+./images/couple.jpg
+./images/flowers.jpg
+./images/rings.jpg
+./images/swans.jpg
+./images/proposal.jpg
+./images/love.jpg
+./images/final.jpg
+./audio/music.mp3
 
-      overflow: hidden;
-    }
+Make sure all paths are case-sensitive and consistent.
 
-    .envelope-front::before {
-      content: "";
+==================================================
+FOLDER STRUCTURE
+==================================================
 
-      position: absolute;
-      inset: 12px;
+The final GitHub repository should use this structure:
 
-      border: 1px solid rgba(169,130,74,.45);
-      pointer-events: none;
-    }
+index.html
 
-    .envelope-front::after {
-      content: "A  &  Y";
+images/
+    couple.jpg
+    flowers.jpg
+    rings.jpg
+    swans.jpg
+    proposal.jpg
+    love.jpg
+    final.jpg
+    envelope.jpg
 
-      position: absolute;
+audio/
+    music.mp3
 
-      bottom: 24px;
+IMPORTANT:
+If a media file does not exist, do NOT silently show a broken image.
 
-      font-family: var(--serif);
-      font-size: 13px;
-      letter-spacing: 4px;
+Instead, use a graceful fallback.
 
-      color: var(--gold);
-    }
+==================================================
+WEDDING INVITATION
+==================================================
 
-    .envelope-flap {
-      position: absolute;
+Wedding couple:
 
-      top: 0;
-      left: 0;
+АЛМАЗ & ЯСМИНА
 
-      width: 100%;
-      height: 58%;
+City:
 
-      background: #f8f0e3;
+Бишкек
 
-      clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 100%
-      );
+Venue:
 
-      transform-origin: top center;
+Ресторан "Frunze"
 
-      transition:
-        transform 1.4s cubic-bezier(.2,.7,.2,1);
+Time:
 
-      z-index: 5;
-    }
+15:00
 
-    .envelope.open .envelope-flap {
-      transform: rotateX(180deg);
-    }
+Wedding hosts:
 
-    .seal {
-      position: absolute;
+АЙБЕК & АРЗУУ
 
-      left: 50%;
-      top: 51%;
+Guest:
 
-      transform: translate(-50%, -50%);
+БЕГИМЖАН
 
-      width: 64px;
-      height: 64px;
+Invitation text:
 
-      border-radius: 50%;
+"Тойго келип конок болуп кетиңиздер,
+эки жашка каалоо-тилек тилеп!"
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+The wedding DATE is not provided yet.
 
-      background:
-        radial-gradient(
-          circle at 35% 30%,
-          #d8b878,
-          #9b713b
-        );
+Create a clearly marked variable at the beginning of JavaScript:
 
-      color: white;
+const WEDDING_DATE = "";
 
-      font-family: var(--serif);
-      font-size: 17px;
+When the date is later provided, it must be possible to change only this one variable.
 
-      box-shadow:
-        0 7px 20px rgba(104,75,38,.25);
+==================================================
+DESIGN
+==================================================
 
-      z-index: 10;
+Create a premium LUXURY ELEGANT wedding invitation.
 
-      transition:
-        transform .6s ease,
-        opacity .6s ease;
-    }
+Visual direction:
 
-    .envelope.open .seal {
-      transform:
-        translate(-50%, -50%)
-        scale(.5)
-        rotate(25deg);
+- quiet luxury
+- elegant wedding editorial
+- ivory
+- champagne
+- warm beige
+- subtle soft gold
+- white
+- very little black
+- premium typography
+- large elegant serif typography
+- delicate script accents
+- lots of whitespace
+- cinematic photography
+- subtle animations
+- sophisticated and expensive appearance
 
-      opacity: 0;
-    }
+Do NOT make it colorful, childish or overly decorative.
 
-    .open-text {
-      font-size: 11px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--soft-text);
-    }
+Do NOT use excessive gold effects.
 
+The website must feel like a luxury wedding invitation.
 
-    /* =========================================================
-       MUSIC
-    ========================================================= */
+==================================================
+FIRST SCREEN — ENVELOPE
+==================================================
 
-    .music-button {
-      position: fixed;
+When the website opens, the user must see ONLY the invitation envelope.
 
-      right: 20px;
-      top: 20px;
+The first screen should not immediately show the wedding website.
 
-      width: 45px;
-      height: 45px;
+Show:
 
-      border-radius: 50%;
+"СИЗГЕ ӨЗГӨЧӨ ЧАКЫРУУ БАР..."
 
-      background: rgba(255,253,248,.88);
+and a beautiful ivory/champagne envelope.
 
-      border: 1px solid rgba(169,130,74,.4);
+The envelope should have:
+- elegant paper texture
+- thin gold border
+- luxury wax seal
+- initials "A & Y"
+- subtle shadow
+- premium 3D appearance
 
-      color: var(--gold);
+Text:
 
-      z-index: 500;
+"Ачуу үчүн конвертти басыңыз"
 
-      display: none;
+==================================================
+ENVELOPE INTERACTION
+==================================================
 
-      align-items: center;
-      justify-content: center;
+When the user taps the envelope:
 
-      box-shadow:
-        0 5px 20px rgba(60,40,20,.1);
+1. The envelope opens with a smooth elegant animation.
+2. The main wedding website appears.
+3. The music starts immediately.
+4. The page unlocks for scrolling.
+5. The music button appears.
 
-      backdrop-filter: blur(10px);
-    }
+VERY IMPORTANT:
 
-    .music-button.active {
-      display: flex;
-    }
+Start the music directly inside the user's click/touch event.
 
-    .music-icon {
-      font-size: 18px;
-    }
+DO NOT wait for a setTimeout before calling:
 
+audio.play()
 
-    /* =========================================================
-       MAIN
-    ========================================================= */
+Because mobile browsers may block audio if playback is triggered outside the original user interaction.
 
-    main {
-      opacity: 0;
-      transform: translateY(25px);
+Use:
 
-      transition:
-        opacity 1.5s ease,
-        transform 1.5s ease;
-    }
+envelopeButton.addEventListener("click", () => {
+    music.play().catch(() => {});
+    ...
+});
 
-    main.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+Also support touch interaction on mobile.
 
+==================================================
+MUSIC
+==================================================
 
-    /* =========================================================
-       HERO
-    ========================================================= */
+Use:
 
-    .hero {
-      position: relative;
-      min-height: 100svh;
+./audio/music.mp3
 
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
+The music must NOT attempt to autoplay when the website initially loads.
 
-      overflow: hidden;
+It must start only after the user taps the envelope.
 
-      background: #ded2c2;
-    }
+Add a floating music control button:
 
-    .hero-image {
-      position: absolute;
-      inset: 0;
+♫
 
-      width: 100%;
-      height: 100%;
+When pressed:
+- music pauses
+- icon changes to muted
+- pressing again resumes music
 
-      object-fit: cover;
+Make the music volume approximately 0.6.
 
-      filter:
-        brightness(.82)
-        saturate(.8);
+Do not reload the audio element.
 
-      transform: scale(1.03);
+Do not create multiple audio elements.
 
-      animation: heroZoom 12s ease-out forwards;
-    }
+==================================================
+IMAGE LOADING
+==================================================
 
-    @keyframes heroZoom {
-      from {
-        transform: scale(1.08);
-      }
+Every image must use a relative GitHub-compatible path.
 
-      to {
-        transform: scale(1);
-      }
-    }
+Example:
 
-    .hero::after {
-      content: "";
+<img src="./images/couple.jpg">
 
-      position: absolute;
-      inset: 0;
+Do not use:
 
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(25,18,10,.08) 0%,
-          rgba(25,18,10,.12) 40%,
-          rgba(25,18,10,.72) 100%
-        );
-    }
+/assets/couple.jpg
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
+Do not use:
 
-      width: 100%;
+assets/couple.jpg
 
-      text-align: center;
+if the folder is actually images.
 
-      color: white;
+Add graceful fallback handling for broken images.
 
-      padding:
-        60px
-        25px
-        70px;
-    }
+If an image fails to load, hide the broken-image icon and display a beautiful neutral background instead.
 
-    .hero-small {
-      font-size: 10px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
+==================================================
+HERO
+==================================================
 
-      margin-bottom: 20px;
+Use:
 
-      opacity: .9;
-    }
+./images/couple.jpg
 
-    .hero-names {
-      font-family: var(--serif);
+Full-screen cinematic hero.
 
-      font-size: clamp(52px, 15vw, 100px);
+Display:
 
-      line-height: .78;
+АЛМАЗ
+&
+ЯСМИНА
 
-      font-weight: 400;
+Use elegant serif typography.
 
-      text-shadow:
-        0 4px 30px rgba(0,0,0,.2);
-    }
+Below:
 
-    .hero-amp {
-      font-family: var(--script);
+"Wedding Invitation"
 
-      font-size: clamp(48px, 13vw, 90px);
+Do not place too much text over the photograph.
 
-      margin: 8px 0;
-    }
+Add subtle slow zoom animation.
 
-    .hero-date {
-      margin-top: 30px;
+==================================================
+INVITATION SECTION
+==================================================
 
-      font-size: 11px;
+Title:
 
-      letter-spacing: 4px;
+"Чакыруу"
 
-      text-transform: uppercase;
-    }
+Text:
 
-    .scroll-hint {
-      margin-top: 40px;
+"Тойго келип конок болуп кетиңиздер,
+эки жашка каалоо-тилек тилеп!"
 
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+Keep the layout minimal and luxurious.
 
-      opacity: .8;
-    }
+==================================================
+LOVE STORY
+==================================================
 
+Use:
 
-    /* =========================================================
-       SECTIONS
-    ========================================================= */
+./images/love.jpg
 
-    section {
-      position: relative;
+Create a cinematic full-screen image section.
 
-      padding:
-        90px
-        22px;
-    }
+Text:
 
-    .section-inner {
-      width: min(100%, 760px);
-      margin: auto;
-      text-align: center;
-    }
+"Love Story"
 
-    .eyebrow {
-      font-size: 9px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
+and:
 
-    .section-title {
-      font-family: var(--serif);
+"Эки жүрөк — бир тагдыр..."
 
-      font-size: clamp(38px, 10vw, 65px);
+Use a subtle fade and slow zoom.
 
-      line-height: .95;
+==================================================
+PHOTO GALLERY
+==================================================
 
-      font-weight: 400;
+Use these images:
 
-      margin-bottom: 25px;
-    }
+./images/couple.jpg
+./images/flowers.jpg
+./images/rings.jpg
+./images/swans.jpg
+./images/proposal.jpg
+./images/love.jpg
 
-    .section-text {
-      max-width: 550px;
+Create an elegant editorial photo gallery.
 
-      margin: auto;
+Do NOT distort the photographs.
 
-      color: var(--soft-text);
+Use:
+- object-fit: cover
+- subtle hover/scroll animation
+- smooth transitions
+- rounded corners only very slightly or not at all
 
-      font-size: 14px;
+On mobile, the gallery must be easy to scroll.
 
-      line-height: 2;
+==================================================
+DATE
+==================================================
 
-      font-weight: 300;
-    }
+Create a luxury "SAVE THE DATE" section.
 
-    .gold-line {
-      width: 55px;
-      height: 1px;
+Because the date is currently unknown, display:
 
-      background: var(--gold);
+"ТОЙДУН ДАТАСЫ"
 
-      margin: 25px auto;
-    }
+and show placeholder countdown values.
 
+Once:
 
-    /* =========================================================
-       INVITATION
-    ========================================================= */
+const WEDDING_DATE = "2026-XX-XXT15:00:00+06:00";
 
-    .invitation {
-      background:
-        radial-gradient(
-          circle at 50% 0,
-          #fffdf9,
-          var(--ivory)
-        );
-    }
+is filled in, automatically show:
+- days
+- hours
+- minutes
+- seconds
 
-    .invitation-title {
-      font-family: var(--script);
+Do not invent the wedding date.
 
-      font-size: 58px;
+==================================================
+VENUE
+==================================================
 
-      color: var(--gold);
+Create:
 
-      margin-bottom: 15px;
-    }
+THE VENUE
 
-    .invitation-name {
-      font-family: var(--serif);
+Ресторан "Frunze"
 
-      font-size: 30px;
+Бишкек шаары
 
-      letter-spacing: 2px;
+15:00
 
-      margin-bottom: 25px;
-    }
+Add a button:
 
+"КАРТАДАН АЧУУ →"
 
-    /* =========================================================
-       LOVE STORY IMAGE
-    ========================================================= */
+The button must open Google Maps search for:
 
-    .story-image-section {
-      padding:
-        0
-        18px;
-    }
+Frunze restaurant Bishkek
 
-    .story-image {
-      width: min(100%, 650px);
+Use a proper external link with target="_blank".
 
-      height: 80vh;
-      min-height: 500px;
+==================================================
+DRESS CODE
+==================================================
 
-      margin: auto;
+Create an elegant Dress Code section.
 
-      object-fit: cover;
+Title:
 
-      filter:
-        saturate(.78)
-        sepia(.08);
+DRESS CODE
 
-      border-radius: 2px;
+Subtitle:
 
-      box-shadow:
-        0 25px 70px rgba(70,50,30,.15);
-    }
+Elegant & Timeless
 
-    .story-overlay {
-      position: absolute;
+Show four elegant color circles:
 
-      left: 50%;
-      bottom: 60px;
+IVORY
+CHAMPAGNE
+BEIGE
+BLACK
 
-      transform: translateX(-50%);
+Text:
 
-      width: 90%;
+"Кеченин жалпы атмосферасына шайкеш,
+жарашыктуу жана назик образ тандап
+келишиңиздерди өтүнөбүз."
 
-      color: white;
+==================================================
+HOSTS
+==================================================
 
-      text-align: center;
+Create a minimal section:
 
-      text-shadow:
-        0 3px 20px rgba(0,0,0,.4);
-    }
+"Тойду чакыргандар"
 
-    .story-overlay h2 {
-      font-family: var(--script);
+АЙБЕК & АРЗУУ
 
-      font-size: 70px;
+==================================================
+GUEST
+==================================================
 
-      font-weight: 400;
-    }
+Create a personal invitation section:
 
+"Өзгөчө конок"
 
-    /* =========================================================
-       PHOTO GALLERY
-    ========================================================= */
+БЕГИМЖАН
 
-    .gallery {
-      background: #f0e8dc;
-    }
+Text:
 
-    .gallery-grid {
-      width: min(100%, 850px);
+"Сизди биздин кубанычыбызды
+бөлүшүүгө чакырабыз."
 
-      margin: 45px auto 0;
+==================================================
+RSVP
+==================================================
 
-      display: grid;
+Create:
 
-      grid-template-columns:
-        repeat(2, 1fr);
+RSVP
 
-      gap: 9px;
-    }
+"Сизди күтөбүз"
 
-    .gallery-item {
-      position: relative;
+Text:
 
-      overflow: hidden;
+"Тойго катышарыңызды билдирип,
+биз үчүн бул өзгөчө күндү
+дагы да маанилүү кылып коюңуз."
 
-      background: #ddd;
+Buttons:
 
-      min-height: 260px;
-    }
+"КАТЫШАМ →"
 
-    .gallery-item:first-child {
-      grid-row: span 2;
-      min-height: 530px;
-    }
+"КАТЫША АЛБАЙМ"
 
-    .gallery-item img {
-      height: 100%;
+Do NOT invent a phone number.
 
-      object-fit: cover;
+Create a clearly marked variable:
 
-      transition:
-        transform 1.2s ease;
-    }
+const WHATSAPP_NUMBER = "";
 
-    .gallery-item:hover img {
-      transform: scale(1.04);
-    }
+When the number is provided later, the RSVP button should open WhatsApp with a pre-filled message.
 
+==================================================
+FINAL SCREEN
+==================================================
 
-    /* =========================================================
-       DATE
-    ========================================================= */
+Use:
 
-    .date-section {
-      background: var(--text);
+./images/final.jpg
 
-      color: white;
+Show:
 
-      overflow: hidden;
-    }
+"Сиздерди күтөбүз"
 
-    .date-section::before {
-      content: "";
+"Алмаз & Ясмина"
 
-      position: absolute;
+Use a cinematic full-screen image.
 
-      width: 400px;
-      height: 400px;
+==================================================
+MOBILE DESIGN
+==================================================
 
-      border-radius: 50%;
+This website is primarily designed for smartphones.
 
-      background:
-        radial-gradient(
-          circle,
-          rgba(216,194,162,.15),
-          transparent 70%
-        );
+It must look beautiful on:
+- Samsung Android
+- iPhone
+- Chrome mobile
+- Safari mobile
 
-      top: -200px;
-      left: -150px;
-    }
+Use:
 
-    .date-section .eyebrow {
-      color: var(--champagne);
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .date-number {
-      font-family: var(--serif);
+Avoid horizontal scrolling.
 
-      font-size: clamp(70px, 20vw, 140px);
+All text must fit correctly on small screens.
 
-      font-weight: 300;
+The envelope must be centered perfectly.
 
-      line-height: .8;
-    }
+The music button must be easy to tap.
 
-    .date-month {
-      font-family: var(--serif);
+==================================================
+ANIMATIONS
+==================================================
 
-      font-size: 32px;
+Use elegant animations only:
 
-      margin-top: 20px;
+- envelope opening
+- fade-in
+- slow image zoom
+- smooth section reveal
+- subtle parallax
+- soft transitions
 
-      letter-spacing: 3px;
-    }
+Do NOT use:
+- aggressive animations
+- flashing
+- excessive movement
+- childish effects
 
-    .countdown {
-      margin: 50px auto 0;
+==================================================
+IMPORTANT TECHNICAL REQUIREMENTS
+==================================================
 
-      display: grid;
+The final answer must contain ONE COMPLETE index.html.
 
-      grid-template-columns:
-        repeat(4, 1fr);
+Everything must be inside that file:
+- HTML
+- CSS
+- JavaScript
 
-      gap: 10px;
+No external JavaScript libraries.
 
-      max-width: 500px;
-    }
+No React.
 
-    .count-box {
-      padding: 15px 5px;
+No build system.
 
-      border-top:
-        1px solid rgba(216,194,162,.35);
+No npm.
 
-      border-bottom:
-        1px solid rgba(216,194,162,.35);
-    }
+No dependencies that require installation.
 
-    .count-number {
-      font-family: var(--serif);
+The file must work immediately when uploaded to GitHub Pages.
 
-      font-size: 30px;
-    }
+IMPORTANT:
+Do not provide explanations instead of code.
 
-    .count-label {
-      margin-top: 5px;
+Return the COMPLETE corrected index.html.
 
-      font-size: 7px;
+Before finalizing, check every image path and the audio path for consistency.
 
-      letter-spacing: 2px;
+The most important requirements are:
 
-      text-transform: uppercase;
-
-      color: var(--champagne);
-    }
-
-
-    /* =========================================================
-       VENUE
-    ========================================================= */
-
-    .venue {
-      background: var(--ivory);
-    }
-
-    .venue-card {
-      width: min(100%, 650px);
-
-      margin: 45px auto 0;
-
-      background: white;
-
-      padding: 10px;
-
-      box-shadow:
-        0 25px 70px rgba(70,50,30,.1);
-    }
-
-    .venue-image {
-      height: 430px;
-
-      object-fit: cover;
-    }
-
-    .venue-info {
-      padding: 40px 20px;
-    }
-
-    .venue-name {
-      font-family: var(--serif);
-
-      font-size: 40px;
-
-      margin-bottom: 10px;
-    }
-
-    .venue-city {
-      color: var(--soft-text);
-
-      font-size: 12px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-    .venue-time {
-      margin: 25px 0;
-
-      font-family: var(--serif);
-
-      font-size: 30px;
-
-      color: var(--gold);
-    }
-
-    .map-button {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      padding: 14px 28px;
-
-      border:
-        1px solid rgba(169,130,74,.55);
-
-      border-radius: 100px;
-
-      font-size: 9px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-
-      color: var(--dark-gold);
-
-      transition:
-        background .3s ease,
-        color .3s ease;
-    }
-
-    .map-button:hover {
-      background: var(--gold);
-      color: white;
-    }
-
-
-    /* =========================================================
-       DRESS CODE
-    ========================================================= */
-
-    .dress-code {
-      background:
-        linear-gradient(
-          135deg,
-          #eee4d5,
-          #f9f5ef
-        );
-    }
-
-    .dress-title {
-      font-family: var(--serif);
-
-      font-size: 50px;
-
-      margin-bottom: 8px;
-    }
-
-    .dress-subtitle {
-      font-size: 10px;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-
-      color: var(--gold);
-    }
-
-    .color-palette {
-      display: flex;
-
-      justify-content: center;
-
-      gap: 22px;
-
-      margin: 45px 0;
-    }
-
-    .color-item {
-      text-align: center;
-    }
-
-    .color-circle {
-      width: 55px;
-      height: 55px;
-
-      border-radius: 50%;
-
-      margin: auto auto 10px;
-
-      border:
-        1px solid rgba(80,60,40,.15);
-
-      box-shadow:
-        0 5px 15px rgba(60,40,20,.08);
-    }
-
-    .ivory {
-      background: #f8f1e5;
-    }
-
-    .champagne {
-      background: #dcc7a5;
-    }
-
-    .beige {
-      background: #c7ae8f;
-    }
-
-    .black {
-      background: #25221f;
-    }
-
-    .color-name {
-      font-size: 7px;
-
-      letter-spacing: 1.5px;
-
-      text-transform: uppercase;
-
-      color: var(--soft-text);
-    }
-
-    .dress-text {
-      max-width: 500px;
-
-      margin: auto;
-
-      font-size: 13px;
-
-      line-height: 2;
-
-      color: var(--soft-text);
-    }
-
-
-    /* =========================================================
-       HOSTS
-    ========================================================= */
-
-    .hosts {
-      background: #fffdf9;
-    }
-
-    .host-names {
-      font-family: var(--serif);
-
-      font-size: clamp(32px, 9vw, 50px);
-
-      letter-spacing: 1px;
-    }
-
-
-    /* =========================================================
-       RSVP
-    ========================================================= */
-
-    .rsvp {
-      background: var(--text);
-
-      color: white;
-    }
-
-    .rsvp .eyebrow {
-      color: var(--champagne);
-    }
-
-    .rsvp-text {
-      color: rgba(255,255,255,.72);
-
-      line-height: 2;
-
-      font-size: 13px;
-
-      max-width: 480px;
-
-      margin: auto;
-    }
-
-    .rsvp-buttons {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 12px;
-
-      max-width: 320px;
-
-      margin: 35px auto 0;
-    }
-
-    .rsvp-button {
-      padding: 16px 25px;
-
-      border-radius: 100px;
-
-      border:
-        1px solid rgba(216,194,162,.5);
-
-      font-size: 9px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-
-      transition:
-        background .3s ease,
-        color .3s ease;
-    }
-
-    .rsvp-primary {
-      background: var(--gold);
-
-      border-color: var(--gold);
-
-      color: white;
-    }
-
-    .rsvp-secondary {
-      color: var(--champagne);
-    }
-
-    .rsvp-button:hover {
-      background: white;
-      color: var(--text);
-    }
-
-
-    /* =========================================================
-       FINAL
-    ========================================================= */
-
-    .final {
-      position: relative;
-
-      min-height: 80vh;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      overflow: hidden;
-
-      padding: 0;
-    }
-
-    .final-image {
-      position: absolute;
-
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      filter:
-        brightness(.68)
-        saturate(.7);
-    }
-
-    .final::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(20,15,10,.15),
-          rgba(20,15,10,.6)
-        );
-    }
-
-    .final-content {
-      position: relative;
-
-      z-index: 2;
-
-      color: white;
-
-      text-align: center;
-
-      padding: 30px;
-    }
-
-    .final-content h2 {
-      font-family: var(--serif);
-
-      font-size: clamp(42px, 11vw, 75px);
-
-      font-weight: 300;
-
-      margin-bottom: 20px;
-    }
-
-    .final-heart {
-      font-size: 22px;
-
-      color: var(--champagne);
-
-      margin-top: 25px;
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    footer {
-      padding: 35px 20px;
-
-      text-align: center;
-
-      background: #211c18;
-
-      color: rgba(255,255,255,.5);
-
-      font-size: 8px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-
-    /* =========================================================
-       REVEAL ANIMATION
-    ========================================================= */
-
-    .reveal {
-      opacity: 0;
-
-      transform: translateY(35px);
-
-      transition:
-        opacity 1s ease,
-        transform 1s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-
-      transform: translateY(0);
-    }
-
-
-    /* =========================================================
-       MOBILE
-    ========================================================= */
-
-    @media (max-width: 600px) {
-
-      section {
-        padding:
-          75px
-          18px;
-      }
-
-      .hero-content {
-        padding-bottom: 60px;
-      }
-
-      .hero-names {
-        font-size: 62px;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-item {
-        min-height: 220px;
-      }
-
-      .gallery-item:first-child {
-        min-height: 450px;
-      }
-
-      .venue-image {
-        height: 360px;
-      }
-
-      .color-palette {
-        gap: 12px;
-      }
-
-      .color-circle {
-        width: 48px;
-        height: 48px;
-      }
-
-      .story-image {
-        height: 75vh;
-      }
-    }
-
-  </style>
-</head>
-
-
-<body class="locked">
-
-
-  <!-- =======================================================
-       MUSIC
-  ======================================================== -->
-
-  <audio
-    id="weddingMusic"
-    src="assets/music.mp3"
-    loop
-    preload="auto">
-  </audio>
-
-
-  <!-- =======================================================
-       INTRO ENVELOPE
-  ======================================================== -->
-
-  <div class="intro" id="intro">
-
-    <div class="intro-inner">
-
-      <div class="intro-small">
-        Wedding Invitation
-      </div>
-
-      <h1 class="intro-title">
-        Сизге өзгөчө чакыруу бар...
-      </h1>
-
-      <div
-        class="envelope-wrapper"
-        id="envelopeButton"
-        role="button"
-        tabindex="0"
-        aria-label="Чакыруу катынын конвертин ачуу"
-      >
-
-        <div class="envelope" id="envelope">
-
-          <div class="envelope-front">
-
-            <div class="seal">
-              A&nbsp;&nbsp;&amp;&nbsp;&nbsp;Y
-            </div>
-
-          </div>
-
-          <div class="envelope-flap"></div>
-
-        </div>
-
-      </div>
-
-      <div class="open-text">
-        Ачуу үчүн конвертти басыңыз
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =======================================================
-       MUSIC BUTTON
-  ======================================================== -->
-
-  <button
-    class="music-button"
-    id="musicButton"
-    aria-label="Музыканы күйгүзүү же өчүрүү"
-  >
-    <span class="music-icon" id="musicIcon">♫</span>
-  </button>
-
-
-  <!-- =======================================================
-       MAIN SITE
-  ======================================================== -->
-
-  <main id="main">
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-      <img
-        src="assets/couple.jpg"
-        alt="Алмаз жана Ясмина"
-        class="hero-image"
-      >
-
-      <div class="hero-content">
-
-        <div class="hero-small">
-          Wedding Invitation
-        </div>
-
-        <div class="hero-names">
-          Алмаз
-          <div class="hero-amp">&amp;</div>
-          Ясмина
-        </div>
-
-        <div class="hero-date">
-          Our Special Day
-        </div>
-
-        <div class="scroll-hint">
-          ↓ Scroll
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- INVITATION -->
-
-    <section class="invitation reveal">
-
-      <div class="section-inner">
-
-        <div class="eyebrow">
-          Сиздер үчүн
-        </div>
-
-        <div class="invitation-title">
-          Чакыруу
-        </div>
-
-        <div class="gold-line"></div>
-
-        <div class="invitation-name">
-          Алмаз &amp; Ясмина
-        </div>
-
-        <p class="section-text">
-          Тойго келип, конок болуп кетиңиздер,
-          эки жашка каалоо-тилек тилеп!
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- LOVE STORY -->
-
-    <section class="story-image-section">
-
-      <img
-        src="assets/love.jpg"
-        alt="Love Story"
-        class="story-image"
-      >
-
-      <div class="story-overlay">
-
-        <div class="eyebrow" style="color:#fff;">
-          Our Story
-        </div>
-
-        <h2>
-          Love
-        </h2>
-
-        <p>
-          Эки жүрөк — бир тагдыр...
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- PHOTO GALLERY -->
-
-    <section class="gallery reveal">
-
-      <div class="section-inner">
-
-        <div class="eyebrow">
-          Our Memories
-        </div>
-
-        <h2 class="section-title">
-          Сүйүү баяны
-        </h2>
-
-        <p class="section-text">
-          Бул өзгөчө күнгө чейинки эң жылуу көз ирмемдер.
-        </p>
-
-      </div>
-
-
-      <div class="gallery-grid">
-
-        <div class="gallery-item">
-          <img
-            src="assets/couple.jpg"
-            alt="Алмаз жана Ясмина"
-          >
-        </div>
-
-        <div class="gallery-item">
-          <img
-            src="assets/flowers.jpg"
-            alt="Wedding flowers"
-          >
-        </div>
-
-        <div class="gallery-item">
-          <img
-            src="assets/rings.jpg"
-            alt="Wedding rings"
-          >
-        </div>
-
-        <div class="gallery-item">
-          <img
-            src="assets/swans.jpg"
-            alt="Love"
-          >
-        </div>
-
-        <div class="gallery-item">
-          <img
-            src="assets/proposal.jpg"
-            alt="Proposal"
-          >
-        </div>
-
-        <div class="gallery-item">
-          <img
-            src="assets/love.jpg"
-            alt="Wedding"
-          >
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DATE -->
-
-    <section class="date-section reveal">
-
-      <div class="section-inner">
-
-        <div class="eyebrow">
-          Save the date
-        </div>
-
-        <div class="date-number" id="dayNumber">
-          —
-        </div>
-
-        <div class="date-month" id="monthName">
-          ТОЙДУН ДАТАСЫ
-        </div>
-
-        <div class="gold-line"></div>
-
-        <div class="countdown">
-
-          <div class="count-box">
-            <div
-              class="count-number"
-              id="days"
-            >
-              —
-            </div>
-
-            <div class="count-label">
-              Күн
-            </div>
-          </div>
-
-
-          <div class="count-box">
-            <div
-              class="count-number"
-              id="hours"
-            >
-              —
-            </div>
-
-            <div class="count-label">
-              Саат
-            </div>
-          </div>
-
-
-          <div class="count-box">
-            <div
-              class="count-number"
-              id="minutes"
-            >
-              —
-            </div>
-
-            <div class="count-label">
-              Мүнөт
-            </div>
-          </div>
-
-
-          <div class="count-box">
-            <div
-              class="count-number"
-              id="seconds"
-            >
-              —
-            </div>
-
-            <div class="count-label">
-              Секунд
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- VENUE -->
-
-    <section class="venue reveal">
-
-      <div class="section-inner">
-
-        <div class="eyebrow">
-          The Venue
-        </div>
-
-        <h2 class="section-title">
-          Той өтүүчү жер
-        </h2>
-
-      </div>
-
-
-      <div class="venue-card">
-
-        <img
-          src="assets/venue.jpg"
-          alt="Frunze рестораны"
-          class="venue-image"
-          onerror="this.style.display='none'"
-        >
-
-        <div class="venue-info">
-
-          <div class="venue-name">
-            Frunze
-          </div>
-
-          <div class="venue-city">
-            Бишкек шаары
-          </div>
-
-          <div class="venue-time">
-            15:00
-          </div>
-
-          <p class="section-text">
-            Сиздерди өзгөчө күнүбүздө
-            күтөбүз.
-          </p>
-
-          <br>
-
-          <!--
-            Даректин так текстин кийин ушул жерге жазабыз.
-            Азырынча картада Frunze ресторанын издөө ачылат.
-          -->
-
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Frunze+restaurant+Bishkek"
-            target="_blank"
-            rel="noopener"
-            class="map-button"
-          >
-            Картадан ачуу →
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DRESS CODE -->
-
-    <section class="dress-code reveal">
-
-      <div class="section-inner">
-
-        <div class="eyebrow">
-          Wedding Style
-        </div>
-
-        <h2 class="dress-title">
-          Dress Code
-        </h2>
-
-        <div class="dress-subtitle">
-          Elegant &amp; Timeless
-        </div>
-
-
-        <div class="color-palette">
-
-          <div class="color-item">
-
-            <div class="color-circle ivory"></div>
-
-            <div class="color-name">
-              Ivory
-            </div>
-
-          </div>
-
-
-          <div class="color-item">
-
-            <div class="color-circle champagne"></div>
-
-            <div class="color-name">
-              Champagne
-            </div>
-
-          </div>
-
-
-          <div class="color-item">
-
-            <div class="color-circle beige"></div>
-
-            <div class="color-name">
-              Beige
-            </div>
-
-          </div>
-
-
-          <div class="color-item">
-
-            <div class="color-circle black"></div>
-
-            <div class="color-name">
-              Black
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <p class="dress-text">
-          Кеченин жалпы атмосферасына шайкеш,
-          жарашыктуу жана назик образ тандап
-          келишиңиздерди өтүнөбүз.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- HOSTS -->
-
-    <section class="hosts reveal">
-
-      <div class="section-inner">
-
-        <div class="eyebrow">
-          With love
-        </div>
-
-        <h2 class="section-title">
-          Тойду чакыргандар
-        </h2>
-
-        <div class="gold-line"></div>
-
-        <div class="host-names">
-          Айбек &amp; Арзуу
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- INVITATION TO GUEST -->
-
-    <section class="invitation reveal">
-
-      <div class="section-inner">
-
-        <div class="eyebrow">
-          Special Guest
-        </div>
-
-        <h2 class="section-title">
-          Бегимжан
-        </h2>
-
-        <div class="gold-line"></div>
-
-        <p class="section-text">
-          Сизди биздин кубанычыбызды
-          бөлүшүүгө чакырабыз.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- RSVP -->
-
-    <section class="rsvp reveal">
-
-      <div class="section-inner">
-
-        <div class="eyebrow">
-          RSVP
-        </div>
-
-        <h2 class="section-title">
-          Сизди күтөбүз
-        </h2>
-
-        <p class="rsvp-text">
-          Тойго катышарыңызды билдирип,
-          биз үчүн бул өзгөчө күндү
-          дагы да маанилүү кылып коюңуз.
-        </p>
-
-
-        <div class="rsvp-buttons">
-
-          <!--
-            Бул кнопкага кийин WhatsApp номерин кошобуз.
-          -->
-
-          <a
-            href="#"
-            id="yesButton"
-            class="rsvp-button rsvp-primary"
-          >
-            Катышам →
-          </a>
-
-
-          <a
-            href="#"
-            id="noButton"
-            class="rsvp-button rsvp-secondary"
-          >
-            Катыша албайм
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FINAL -->
-
-    <section class="final">
-
-      <img
-        src="assets/final.jpg"
-        alt="Алмаз жана Ясмина"
-        class="final-image"
-        onerror="this.style.display='none'"
-      >
-
-      <div class="final-content">
-
-        <h2>
-          Сиздерди күтөбүз
-        </h2>
-
-        <p>
-          Алмаз &amp; Ясмина
-        </p>
-
-        <div class="final-heart">
-          ♥
-        </div>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-    Almaz &amp; Yasmina · Wedding Invitation
-  </footer>
-
-
-  <script>
-
-    /* =========================================================
-       WEDDING DATE
-       =========================================================
-
-       Мында тойдун датасын жазасың.
-
-       Мисалы:
-       "2026-10-25T15:00:00+06:00"
-
-       Азыр дата белгисиз болгондуктан бош турат.
-    ========================================================= */
-
-    const WEDDING_DATE = "";
-
-
-    /* =========================================================
-       ELEMENTS
-    ========================================================= */
-
-    const intro =
-      document.getElementById("intro");
-
-    const envelope =
-      document.getElementById("envelope");
-
-    const envelopeButton =
-      document.getElementById("envelopeButton");
-
-    const main =
-      document.getElementById("main");
-
-    const music =
-      document.getElementById("weddingMusic");
-
-    const musicButton =
-      document.getElementById("musicButton");
-
-    const musicIcon =
-      document.getElementById("musicIcon");
-
-
-    /* =========================================================
-       OPEN INVITATION
-    ========================================================= */
-
-    function openInvitation() {
-
-      envelope.classList.add("open");
-
-      /*
-        Бир аз убакыттан кийин негизги сайт ачылат.
-      */
-
-      setTimeout(() => {
-
-        intro.classList.add("hidden");
-
-        document.body.classList.remove("locked");
-
-        main.classList.add("visible");
-
-        musicButton.classList.add("active");
-
-        /*
-          Музыка браузер тарабынан уруксат берилет,
-          анткени колдонуучу өзү envelope басып жатат.
-        */
-
-        music.play()
-          .then(() => {
-
-            musicIcon.textContent = "♫";
-
-          })
-          .catch(() => {
-
-            musicIcon.textContent = "🔇";
-
-          });
-
-      }, 1300);
-
-
-      /*
-        Экрандын башына кайра туруп калбасын.
-      */
-
-      window.scrollTo({
-        top: 0,
-        behavior: "instant"
-      });
-
-    }
-
-
-    envelopeButton.addEventListener(
-      "click",
-      openInvitation
-    );
-
-
-    envelopeButton.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
-
-          event.preventDefault();
-
-          openInvitation();
-
-        }
-
-      }
-    );
-
-
-    /* =========================================================
-       MUSIC BUTTON
-    ========================================================= */
-
-    musicButton.addEventListener(
-      "click",
-      function() {
-
-        if (music.paused) {
-
-          music.play();
-
-          musicIcon.textContent = "♫";
-
-        } else {
-
-          music.pause();
-
-          musicIcon.textContent = "🔇";
-
-        }
-
-      }
-    );
-
-
-    /* =========================================================
-       COUNTDOWN
-    ========================================================= */
-
-    const dayNumber =
-      document.getElementById("dayNumber");
-
-    const monthName =
-      document.getElementById("monthName");
-
-    const days =
-      document.getElementById("days");
-
-    const hours =
-      document.getElementById("hours");
-
-    const minutes =
-      document.getElementById("minutes");
-
-    const seconds =
-      document.getElementById("seconds");
-
-
-    const months = [
-      "ЯНВАРЬ",
-      "ФЕВРАЛЬ",
-      "МАРТ",
-      "АПРЕЛЬ",
-      "МАЙ",
-      "ИЮНЬ",
-      "ИЮЛЬ",
-      "АВГУСТ",
-      "СЕНТЯБРЬ",
-      "ОКТЯБРЬ",
-      "НОЯБРЬ",
-      "ДЕКАБРЬ"
-    ];
-
-
-    function updateCountdown() {
-
-      if (!WEDDING_DATE) {
-
-        dayNumber.textContent = "—";
-
-        monthName.textContent =
-          "ТОЙДУН ДАТАСЫ";
-
-        days.textContent = "—";
-        hours.textContent = "—";
-        minutes.textContent = "—";
-        seconds.textContent = "—";
-
-        return;
-
-      }
-
-
-      const target =
-        new Date(WEDDING_DATE).getTime();
-
-      const now =
-        new Date().getTime();
-
-      const difference =
-        target - now;
-
-
-      if (difference <= 0) {
-
-        days.textContent = "0";
-        hours.textContent = "0";
-        minutes.textContent = "0";
-        seconds.textContent = "0";
-
-        return;
-
-      }
-
-
-      const d =
-        Math.floor(
-          difference /
-          (1000 * 60 * 60 * 24)
-        );
-
-
-      const h =
-        Math.floor(
-          (difference /
-            (1000 * 60 * 60)) % 24
-        );
-
-
-      const m =
-        Math.floor(
-          (difference /
-            (1000 * 60)) % 60
-        );
-
-
-      const s =
-        Math.floor(
-          (difference / 1000) % 60
-        );
-
-
-      const date =
-        new Date(WEDDING_DATE);
-
-
-      dayNumber.textContent =
-        String(
-          date.getDate()
-        ).padStart(2, "0");
-
-
-      monthName.textContent =
-        months[
-          date.getMonth()
-        ];
-
-
-      days.textContent =
-        String(d).padStart(2, "0");
-
-      hours.textContent =
-        String(h).padStart(2, "0");
-
-      minutes.textContent =
-        String(m).padStart(2, "0");
-
-      seconds.textContent =
-        String(s).padStart(2, "0");
-
-    }
-
-
-    updateCountdown();
-
-    setInterval(
-      updateCountdown,
-      1000
-    );
-
-
-    /* =========================================================
-       SCROLL REVEAL
-    ========================================================= */
-
-    const revealElements =
-      document.querySelectorAll(".reveal");
-
-
-    const observer =
-      new IntersectionObserver(
-        function(entries) {
-
-          entries.forEach(
-            function(entry) {
-
-              if (
-                entry.isIntersecting
-              ) {
-
-                entry.target.classList.add(
-                  "show"
-                );
-
-              }
-
-            }
-          );
-
-        },
-        {
-          threshold: 0.12
-        }
-      );
-
-
-    revealElements.forEach(
-      function(element) {
-
-        observer.observe(element);
-
-      }
-    );
-
-
-    /* =========================================================
-       RSVP
-    =========================================================
-
-       WhatsApp номерин кийин ушул жерге кошобуз.
-
-       Мисалы:
-
-       const whatsappNumber = "996XXXXXXXXX";
-
-       Анан кнопкалар автоматтык WhatsApp ачат.
-    ========================================================= */
-
-
-    const yesButton =
-      document.getElementById("yesButton");
-
-    const noButton =
-      document.getElementById("noButton");
-
-
-    yesButton.addEventListener(
-      "click",
-      function(event) {
-
-        event.preventDefault();
-
-        /*
-          WhatsApp номерин кийин кошобуз.
-        */
-
-        alert(
-          "Катышууңуз үчүн чоң рахмат! 🤍"
-        );
-
-      }
-    );
-
-
-    noButton.addEventListener(
-      "click",
-      function(event) {
-
-        event.preventDefault();
-
-        alert(
-          "Жообуңуз үчүн рахмат 🤍"
-        );
-
-      }
-    );
-
-
-  </script>
-
-</body>
-  </html>
+1. Images must actually load.
+2. Music must start after tapping the envelope.
+3. The envelope must open.
+4. The site must work on mobile.
+5. GitHub Pages must support the paths.
+6. No invented wedding date.
+7. No invented phone number.
+8. Luxury elegant visual style.
