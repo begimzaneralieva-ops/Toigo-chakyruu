@@ -1,101 +1,41 @@
-Rewrite the entire wedding invitation website from scratch and fix all previous media-loading and audio problems.
+Create a complete luxury wedding invitation website for GitHub Pages.
 
 IMPORTANT:
-The website will be hosted on GitHub Pages.
+Generate the actual working website code, NOT another prompt.
+Return ONE complete, ready-to-use index.html file containing HTML, CSS and JavaScript.
 
-The previous version had broken images and music because the HTML referenced filenames that did not actually exist in the GitHub repository.
+The website must work directly after uploading index.html to the root of the GitHub repository.
 
-DO NOT use fake filenames such as:
-assets/couple.jpg
-assets/music.mp3
-assets/flowers.jpg
-
-unless those exact files actually exist.
-
-The new code must be designed specifically for the files that are uploaded to the same GitHub repository.
+Do not use React.
+Do not use npm.
+Do not use a build system.
+Do not require installation.
+Use only HTML, CSS and vanilla JavaScript.
 
 ==================================================
-GITHUB PAGES COMPATIBILITY
+PROJECT
 ==================================================
 
-Create a single complete index.html that works correctly on GitHub Pages.
-
-Use ONLY relative paths.
-
-Do not use:
-- local computer paths
-- sandbox paths
-- Windows paths
-- absolute filesystem paths
-- localhost URLs
-
-All media must load from the same GitHub repository.
-
-Use paths such as:
-
-./images/couple.jpg
-./images/flowers.jpg
-./images/rings.jpg
-./images/swans.jpg
-./images/proposal.jpg
-./images/love.jpg
-./images/final.jpg
-./audio/music.mp3
-
-Make sure all paths are case-sensitive and consistent.
-
-==================================================
-FOLDER STRUCTURE
-==================================================
-
-The final GitHub repository should use this structure:
-
-index.html
-
-images/
-    couple.jpg
-    flowers.jpg
-    rings.jpg
-    swans.jpg
-    proposal.jpg
-    love.jpg
-    final.jpg
-    envelope.jpg
-
-audio/
-    music.mp3
-
-IMPORTANT:
-If a media file does not exist, do NOT silently show a broken image.
-
-Instead, use a graceful fallback.
-
-==================================================
-WEDDING INVITATION
-==================================================
-
-Wedding couple:
+Create a premium digital wedding invitation website for:
 
 АЛМАЗ & ЯСМИНА
 
-City:
-
-Бишкек
-
-Venue:
-
-Ресторан "Frunze"
+Wedding date:
+27.01.2027
 
 Time:
-
 15:00
 
-Wedding hosts:
+Location:
+Бишкек шаары
 
+Venue:
+Ресторан "Frunze"
+
+Wedding hosts:
 АЙБЕК & АРЗУУ
 
-Guest:
-
+Invited guest:
 БЕГИМЖАН
 
 Invitation text:
@@ -103,161 +43,240 @@ Invitation text:
 "Тойго келип конок болуп кетиңиздер,
 эки жашка каалоо-тилек тилеп!"
 
-The wedding DATE is not provided yet.
-
-Create a clearly marked variable at the beginning of JavaScript:
-
-const WEDDING_DATE = "";
-
-When the date is later provided, it must be possible to change only this one variable.
-
 ==================================================
-DESIGN
+MAIN VISUAL STYLE
 ==================================================
 
-Create a premium LUXURY ELEGANT wedding invitation.
+The entire website must look like a high-end luxury wedding invitation.
 
-Visual direction:
+Style:
 
+- luxury
+- elegant
+- romantic
+- timeless
+- sophisticated
+- editorial wedding aesthetic
 - quiet luxury
-- elegant wedding editorial
+- premium wedding magazine
+- cinematic photography
 - ivory
 - champagne
 - warm beige
-- subtle soft gold
+- soft cream
+- subtle gold
 - white
-- very little black
-- premium typography
-- large elegant serif typography
-- delicate script accents
-- lots of whitespace
-- cinematic photography
-- subtle animations
-- sophisticated and expensive appearance
+- elegant black typography
 
-Do NOT make it colorful, childish or overly decorative.
+Do NOT make it childish.
 
-Do NOT use excessive gold effects.
+Do NOT use bright colors.
 
-The website must feel like a luxury wedding invitation.
+Do NOT use excessive gold.
+
+Do NOT use excessive decorative elements.
+
+The design should feel expensive, minimal and sophisticated.
+
+Use elegant serif typography for the couple's names and main headings.
+
+Use a clean elegant font for body text.
+
+Use subtle script typography only for small decorative accents.
 
 ==================================================
 FIRST SCREEN — ENVELOPE
 ==================================================
 
-When the website opens, the user must see ONLY the invitation envelope.
+When the website first opens, show ONLY a luxury wedding envelope.
 
-The first screen should not immediately show the wedding website.
+The actual wedding website must remain hidden until the envelope is opened.
 
-Show:
-
-"СИЗГЕ ӨЗГӨЧӨ ЧАКЫРУУ БАР..."
-
-and a beautiful ivory/champagne envelope.
+Create a beautiful centered ivory/champagne invitation envelope.
 
 The envelope should have:
-- elegant paper texture
-- thin gold border
-- luxury wax seal
-- initials "A & Y"
-- subtle shadow
-- premium 3D appearance
 
-Text:
+- premium paper texture
+- subtle cream background
+- thin champagne-gold border
+- elegant wax seal
+- initials "A & Y"
+- realistic soft shadow
+- subtle 3D depth
+- refined luxury appearance
+
+Above or below the envelope display:
+
+"СИЗГЕ ӨЗГӨЧӨ ЧАКЫРУУ БАР"
+
+Below:
 
 "Ачуу үчүн конвертти басыңыз"
 
+The envelope must be fully responsive and centered on mobile.
+
 ==================================================
-ENVELOPE INTERACTION
+ENVELOPE OPENING
 ==================================================
 
-When the user taps the envelope:
+When the user taps/clicks the envelope:
 
 1. The envelope opens with a smooth elegant animation.
-2. The main wedding website appears.
-3. The music starts immediately.
-4. The page unlocks for scrolling.
-5. The music button appears.
+2. The envelope screen fades away.
+3. The wedding website appears.
+4. The wedding music starts immediately.
+5. Smooth scrolling becomes available.
+6. A music control button appears.
 
-VERY IMPORTANT:
+The transition should feel cinematic and luxurious.
 
-Start the music directly inside the user's click/touch event.
+Do not make the animation too fast.
 
-DO NOT wait for a setTimeout before calling:
-
-audio.play()
-
-Because mobile browsers may block audio if playback is triggered outside the original user interaction.
-
-Use:
-
-envelopeButton.addEventListener("click", () => {
-    music.play().catch(() => {});
-    ...
-});
-
-Also support touch interaction on mobile.
+Do not use childish effects.
 
 ==================================================
 MUSIC
 ==================================================
 
-Use:
+IMPORTANT:
 
-./audio/music.mp3
+There is an audio file uploaded to the GitHub repository.
 
-The music must NOT attempt to autoplay when the website initially loads.
+Find and use the REAL audio file that exists in the repository.
 
-It must start only after the user taps the envelope.
+DO NOT invent a filename.
 
-Add a floating music control button:
+DO NOT use:
 
-♫
+music.mp3
+audio/music.mp3
+assets/music.mp3
 
-When pressed:
-- music pauses
-- icon changes to muted
-- pressing again resumes music
+unless that exact file actually exists.
 
-Make the music volume approximately 0.6.
+Use the exact filename and exact relative path of the audio file that exists in the repository.
 
-Do not reload the audio element.
+The audio must begin ONLY after the user taps the envelope.
+
+This is important because mobile browsers block automatic audio playback.
+
+Use the click/touch event of the envelope itself to call audio.play().
+
+Example logic:
+
+envelopeButton.addEventListener("click", function() {
+    music.play().catch(() => {});
+});
+
+Do not call music.play() automatically when the page loads.
+
+Set volume around 0.6.
+
+Create a floating elegant music button.
+
+When music is playing:
+show a music icon.
+
+When music is paused:
+show a muted icon.
+
+The user must be able to pause and resume the music.
 
 Do not create multiple audio elements.
 
 ==================================================
-IMAGE LOADING
+GITHUB FILE PATHS
 ==================================================
 
-Every image must use a relative GitHub-compatible path.
+The following real image files already exist in the repository root.
 
-Example:
+Use these exact filenames:
 
-<img src="./images/couple.jpg">
+1.
+374edfa2154eae9ea46fa4b0f16525.jpg
 
-Do not use:
+2.
+38d0251a9bf15bb5b1bac204472ce7c1.jpg
 
-/assets/couple.jpg
+3.
+41e65e38f830c60f7c5511a49f663782.jpg
 
-Do not use:
+4.
+86ae43136917e1ed5523e25f6c03f7cf.jpg
 
-assets/couple.jpg
+5.
+d5f50704acf66102aa999d6a51344809.jpg
 
-if the folder is actually images.
+6.
+fda2901a4c6d0a870284cb85e1d1e6c1.jpg
 
-Add graceful fallback handling for broken images.
+The video file is:
 
-If an image fails to load, hide the broken-image icon and display a beautiful neutral background instead.
+VID_20261001_004102_854.mp4
+
+IMPORTANT:
+
+All of these files are located in the ROOT of the repository.
+
+Therefore use paths such as:
+
+./374edfa2154eae9ea46fa4b0f16525.jpg
+
+NOT:
+
+./images/374edfa2154eae9ea46fa4b0f16525.jpg
+
+NOT:
+
+/images/...
+
+NOT:
+
+assets/...
+
+Do not invent folders.
+
+Do not rename the files.
+
+Do not invent new filenames.
 
 ==================================================
-HERO
+IMAGE GALLERY
 ==================================================
+
+Use all six real JPG images in the website.
+
+Create a premium editorial wedding gallery.
+
+The photos should appear naturally throughout the invitation rather than as a basic grid only.
+
+Use elegant combinations of:
+
+- full-screen photographs
+- cinematic image sections
+- editorial gallery
+- close-up details
+- subtle image transitions
+
+Do not distort the images.
 
 Use:
 
-./images/couple.jpg
+object-fit: cover;
 
-Full-screen cinematic hero.
+where appropriate.
+
+Maintain the original image proportions whenever possible.
+
+Add subtle fade-in animations when sections enter the viewport.
+
+==================================================
+HERO SECTION
+==================================================
+
+Use one of the provided wedding photographs as the main hero image.
+
+Create a full-screen cinematic hero section.
 
 Display:
 
@@ -265,19 +284,25 @@ Display:
 &
 ЯСМИНА
 
-Use elegant serif typography.
-
 Below:
+
+27.01.2027
+
+Then:
 
 "Wedding Invitation"
 
-Do not place too much text over the photograph.
+Use elegant serif typography.
 
-Add subtle slow zoom animation.
+The couple's names must be the main visual focus.
+
+Use a very subtle slow zoom effect on the background photograph.
 
 ==================================================
-INVITATION SECTION
+INTRODUCTION
 ==================================================
+
+Create an elegant invitation section.
 
 Title:
 
@@ -288,100 +313,107 @@ Text:
 "Тойго келип конок болуп кетиңиздер,
 эки жашка каалоо-тилек тилеп!"
 
-Keep the layout minimal and luxurious.
+Keep the section minimal.
+
+Use lots of whitespace.
+
+==================================================
+DATE SECTION
+==================================================
+
+Create a luxury SAVE THE DATE section.
+
+Display:
+
+SAVE THE DATE
+
+27.01.2027
+
+Then:
+
+"27 январь 2027"
+
+Create a live countdown to:
+
+27 January 2027 at 15:00 Bishkek local time.
+
+Show:
+
+КҮН
+СААТ
+МҮНӨТ
+СЕКУНД
+
+The countdown must automatically update every second.
+
+Do NOT use any other date.
+
+Do NOT invent a different date.
 
 ==================================================
 LOVE STORY
 ==================================================
 
-Use:
+Create a cinematic romantic section.
 
-./images/love.jpg
+Use one of the provided photographs.
 
-Create a cinematic full-screen image section.
+Title:
+
+"LOVE STORY"
 
 Text:
 
-"Love Story"
-
-and:
-
 "Эки жүрөк — бир тагдыр..."
 
-Use a subtle fade and slow zoom.
+Use soft warm lighting and elegant typography.
+
+The image should slowly zoom while scrolling.
 
 ==================================================
-PHOTO GALLERY
+ROMANTIC PHOTO SECTIONS
 ==================================================
 
-Use these images:
+Use the provided photographs creatively.
 
-./images/couple.jpg
-./images/flowers.jpg
-./images/rings.jpg
-./images/swans.jpg
-./images/proposal.jpg
-./images/love.jpg
+Include sections inspired by:
 
-Create an elegant editorial photo gallery.
+- wedding rings
+- flowers
+- romantic couple moments
+- symbolic love
+- wedding atmosphere
 
-Do NOT distort the photographs.
+Do not add unrelated stock photos.
+
+Only use the real images provided in the repository.
+
+==================================================
+VIDEO SECTION
+==================================================
+
+Use the existing video:
+
+VID_20261001_004102_854.mp4
+
+Create a cinematic full-width video section.
+
+The video should play silently by default.
 
 Use:
-- object-fit: cover
-- subtle hover/scroll animation
-- smooth transitions
-- rounded corners only very slightly or not at all
 
-On mobile, the gallery must be easy to scroll.
+autoplay
+muted
+loop
+playsinline
 
-==================================================
-DATE
-==================================================
+Do not force audio from the video.
 
-Create a luxury "SAVE THE DATE" section.
+Place the video between elegant wedding sections.
 
-Because the date is currently unknown, display:
+Make it responsive on mobile.
 
-"ТОЙДУН ДАТАСЫ"
-
-and show placeholder countdown values.
-
-Once:
-
-const WEDDING_DATE = "2026-XX-XXT15:00:00+06:00";
-
-is filled in, automatically show:
-- days
-- hours
-- minutes
-- seconds
-
-Do not invent the wedding date.
-
-==================================================
-VENUE
-==================================================
-
-Create:
-
-THE VENUE
-
-Ресторан "Frunze"
-
-Бишкек шаары
-
-15:00
-
-Add a button:
-
-"КАРТАДАН АЧУУ →"
-
-The button must open Google Maps search for:
-
-Frunze restaurant Bishkek
-
-Use a proper external link with target="_blank".
+Do not stretch or distort the video.
 
 ==================================================
 DRESS CODE
@@ -389,15 +421,15 @@ DRESS CODE
 
 Create an elegant Dress Code section.
 
-Title:
+Heading:
 
 DRESS CODE
 
-Subtitle:
+Subheading:
 
 Elegant & Timeless
 
-Show four elegant color circles:
+Display four elegant color swatches:
 
 IVORY
 CHAMPAGNE
@@ -410,23 +442,61 @@ Text:
 жарашыктуу жана назик образ тандап
 келишиңиздерди өтүнөбүз."
 
+Use subtle circles or small elegant color blocks.
+
+Do not make this section colorful.
+
+==================================================
+VENUE
+==================================================
+
+Create a luxury venue section.
+
+Display:
+
+THE VENUE
+
+Ресторан "Frunze"
+
+Бишкек шаары
+
+27.01.2027
+
+15:00
+
+Add an elegant button:
+
+"КАРТАДАН АЧУУ →"
+
+The button should open Google Maps in a new tab and search for:
+
+Frunze restaurant Bishkek
+
+Do not invent a street address.
+
 ==================================================
 HOSTS
 ==================================================
 
-Create a minimal section:
+Create a section:
 
 "Тойду чакыргандар"
 
 АЙБЕК & АРЗУУ
 
+Keep it minimal and elegant.
+
 ==================================================
-GUEST
+SPECIAL GUEST
 ==================================================
 
-Create a personal invitation section:
+Create a personalized invitation section.
+
+Heading:
 
 "Өзгөчө конок"
+
+Name:
 
 БЕГИМЖАН
 
@@ -435,60 +505,72 @@ Text:
 "Сизди биздин кубанычыбызды
 бөлүшүүгө чакырабыз."
 
+Make this section feel personal and luxurious.
+
 ==================================================
 RSVP
 ==================================================
 
-Create:
+Create an RSVP section.
+
+Heading:
 
 RSVP
-
-"Сизди күтөбүз"
 
 Text:
 
-"Тойго катышарыңызды билдирип,
-биз үчүн бул өзгөчө күндү
-дагы да маанилүү кылып коюңуз."
+"Сизди күтөбүз"
 
-Buttons:
+Additional text:
 
-"КАТЫШАМ →"
+"Бул өзгөчө күндө биз менен бирге болуп,
+кубанычыбызды бөлүшүп кетишиңиздерди
+каалайбыз."
+
+Create two elegant buttons:
+
+"КАТЫШАМ"
 
 "КАТЫША АЛБАЙМ"
 
 Do NOT invent a phone number.
 
-Create a clearly marked variable:
+Do NOT create a fake WhatsApp number.
 
-const WHATSAPP_NUMBER = "";
+For now the buttons may show a small elegant message such as:
 
-When the number is provided later, the RSVP button should open WhatsApp with a pre-filled message.
+"Рахмат!"
 
 ==================================================
-FINAL SCREEN
+FINAL SECTION
 ==================================================
 
-Use:
+Create a cinematic final section using one of the provided wedding photographs.
 
-./images/final.jpg
-
-Show:
+Display:
 
 "Сиздерди күтөбүз"
 
-"Алмаз & Ясмина"
+Then:
 
-Use a cinematic full-screen image.
+АЛМАЗ & ЯСМИНА
+
+Then:
+
+27.01.2027
+
+Use a very elegant fade-out style.
 
 ==================================================
-MOBILE DESIGN
+MOBILE FIRST
 ==================================================
 
-This website is primarily designed for smartphones.
+The website is primarily designed for smartphones.
 
-It must look beautiful on:
-- Samsung Android
+It must work beautifully on:
+
+- Android
+- Samsung phones
 - iPhone
 - Chrome mobile
 - Safari mobile
@@ -497,70 +579,180 @@ Use:
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-Avoid horizontal scrolling.
+No horizontal scrolling.
 
-All text must fit correctly on small screens.
+All buttons must be easy to tap.
 
-The envelope must be centered perfectly.
+The envelope must be perfectly centered.
 
-The music button must be easy to tap.
+Typography must remain readable on small screens.
+
+Images must load correctly on mobile.
+
+Video must be responsive.
+
+Music must work after the envelope is tapped.
 
 ==================================================
 ANIMATIONS
 ==================================================
 
-Use elegant animations only:
+Use only elegant animations:
 
 - envelope opening
-- fade-in
+- fade in
+- fade out
 - slow image zoom
-- smooth section reveal
+- smooth scrolling
 - subtle parallax
-- soft transitions
+- section reveal
+- gentle text animation
 
-Do NOT use:
-- aggressive animations
-- flashing
-- excessive movement
-- childish effects
+Avoid excessive animations.
+
+No flashing.
+
+No bouncing buttons.
+
+No childish transitions.
 
 ==================================================
-IMPORTANT TECHNICAL REQUIREMENTS
+ERROR HANDLING
 ==================================================
 
-The final answer must contain ONE COMPLETE index.html.
+Very important:
 
-Everything must be inside that file:
-- HTML
-- CSS
-- JavaScript
+Do not allow broken image icons to appear.
 
-No external JavaScript libraries.
+Add JavaScript error handling for images.
+
+If an image fails to load, replace it with a neutral elegant placeholder instead of showing a broken image icon.
+
+The website must not break if one media file fails.
+
+For audio:
+
+If audio.play() is rejected by the browser, do not crash the website.
+
+Keep the music button available so the user can manually start the music.
+
+==================================================
+TECHNICAL REQUIREMENTS
+==================================================
+
+Everything must be inside ONE index.html file.
+
+Include:
+
+HTML
+CSS
+JavaScript
+
+No external frameworks.
 
 No React.
 
-No build system.
-
 No npm.
 
-No dependencies that require installation.
+No build tools.
 
-The file must work immediately when uploaded to GitHub Pages.
+No dependencies.
+
+No external image URLs.
+
+No fake image URLs.
+
+No fake audio URLs.
+
+No fake filenames.
+
+Use only the real files available in the GitHub repository.
+
+All paths must be relative.
+
+==================================================
+CRITICAL FILE REQUIREMENT
+==================================================
+
+Before generating the final code, carefully verify the filenames.
+
+Known real image files:
+
+374edfa2154eae9ea46fa4b0f16525.jpg
+38d0251a9bf15bb5b1bac204472ce7c1.jpg
+41e65e38f830c60f7c5511a49f663782.jpg
+86ae43136917e1ed5523e25f6c03f7cf.jpg
+d5f50704acf66102aa999d6a51344809.jpg
+fda2901a4c6d0a870284cb85e1d1e6c1.jpg
+
+Known real video:
+
+VID_20261001_004102_854.mp4
+
+For audio, inspect the repository and use the exact real audio filename if an audio file exists.
+
+Do not invent an audio filename.
+
+==================================================
+FINAL RESULT
+==================================================
+
+The finished website should feel like a premium luxury wedding invitation, not a normal website.
+
+The user experience should be:
+
+OPEN WEBSITE
+↓
+SEE LUXURY ENVELOPE
+↓
+TAP ENVELOPE
+↓
+ENVELOPE OPENS
+↓
+MUSIC STARTS
+↓
+ALMAZ & YASMINA
+↓
+27.01.2027
+↓
+LOVE STORY
+↓
+WEDDING PHOTOS
+↓
+VIDEO
+↓
+DRESS CODE
+↓
+VENUE
+↓
+HOSTS
+↓
+SPECIAL GUEST
+↓
+RSVP
+↓
+FINAL WEDDING MESSAGE
+
+Use the following exact wedding information:
+
+АЛМАЗ & ЯСМИНА
+27.01.2027
+15:00
+Бишкек шаары
+Ресторан "Frunze"
+АЙБЕК & АРЗУУ
+БЕГИМЖАН
+
+Invitation:
+
+"Тойго келип конок болуп кетиңиздер,
+эки жашка каалоо-тилек тилеп!"
 
 IMPORTANT:
-Do not provide explanations instead of code.
-
-Return the COMPLETE corrected index.html.
-
-Before finalizing, check every image path and the audio path for consistency.
-
-The most important requirements are:
-
-1. Images must actually load.
-2. Music must start after tapping the envelope.
-3. The envelope must open.
-4. The site must work on mobile.
-5. GitHub Pages must support the paths.
-6. No invented wedding date.
-7. No invented phone number.
-8. Luxury elegant visual style.
+Return the COMPLETE WORKING index.html code only.
+Do not return another explanation.
+Do not return a prompt.
+Do not use placeholder filenames for the six known images.
+Do not invent the wedding date.
+Do not invent a phone number.
+Do not invent an audio filename.
